@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="di_p.FoodShop" name="fs">
+		<lookup-method name="order_food" bean="snack2"/>
+		
+		<lookup-method name="order_bf" bean="bf2"/>
+		
+		<lookup-method name="order_lunch" bean="lunch2"/>
+		
+		<lookup-method name="order_dinner" bean="dinner2"/>
+		
+		<lookup-method name="order_midnight" bean="nightfood1"/>
+		
+	</bean>
+	
+	<bean class="di_p.Food" name="nightfood1">
+		<constructor-arg value="야식" />
+		<constructor-arg value="[곱도리탕]" />
+	</bean>
+	
+	<bean class="di_p.Food" name="snack1">
+		<constructor-arg value="간식" />
+		<constructor-arg value="[아이스찰떡]" />
+	</bean>
+	<bean class="di_p.Food" name="snack2">
+		<constructor-arg value="간식" />
+		<constructor-arg value="[매운새우깡]" />
+	</bean>
+	
+	<bean class="di_p.Food" name="bf1">
+		<constructor-arg value="아침" />
+		<constructor-arg value="[모닝토스트]" />
+	</bean>
+	<bean class="di_p.Food" name="bf2">
+		<constructor-arg value="아침" />
+		<constructor-arg value="[시리얼]" />
+	</bean>
+	
+	<bean class="di_p.Food" name="lunch1">
+		<constructor-arg value="점심" />
+		<constructor-arg value="[국밥]" />
+	</bean>
+	<bean class="di_p.Food" name="lunch2">
+		<constructor-arg value="점심" />
+		<constructor-arg value="[편의점도시락]" />
+	</bean>
+	
+	<bean class="di_p.Food" name="dinner1">
+		<constructor-arg value="저녁" />
+		<constructor-arg value="[삼겹살]" />
+	</bean>
+	<bean class="di_p.Food" name="dinner2">
+		<constructor-arg value="저녁" />
+		<constructor-arg value="[오마카세]" />
+	</bean>
+	
+	
+
+</beans>

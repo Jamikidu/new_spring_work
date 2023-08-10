@@ -1,0 +1,26 @@
+package di_p.main;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import di_p.Coffee;
+import di_p.CoffeeShop;
+
+public class Lookup_main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		AbstractApplicationContext context =
+				new ClassPathXmlApplicationContext("di_xml/lookup.xml");
+		
+		CoffeeShop cs = context.getBean("cs",CoffeeShop.class);
+		
+		System.out.println(cs.order_am());
+		
+		Coffee co = context.getBean("cs",Coffee.class);
+		
+		System.out.println("co : " + co);
+	}
+
+}

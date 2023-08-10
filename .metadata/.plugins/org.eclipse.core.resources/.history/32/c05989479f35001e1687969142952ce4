@@ -1,0 +1,9 @@
+package di_p;
+
+public class Bicycle {
+
+	String name;
+	Wheel wheel;
+	Handle handle;
+	Basket basket;
+}

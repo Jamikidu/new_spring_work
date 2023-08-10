@@ -1,0 +1,19 @@
+package di_p.bicycle;
+
+public class Wheel {
+
+
+	int wheelNum;
+
+	public int getWheelsNum() {
+		return wheelNum;
+	}
+
+	public void setWheelsNum(int wheelNum) {
+		this.wheelNum = wheelNum;
+	}
+
+
+
+
+}

@@ -1,0 +1,20 @@
+package di_p;
+
+public class Food {
+
+	String eat;
+	int price;
+	
+	public Food(String eat, String menu) {
+		super();
+		this.eat = eat;
+		this.menu = menu;
+	}
+
+	@Override
+	public String toString() {
+		return "Food [eat=" + eat + ", menu=" + menu + "]";
+	}
+	
+	
+}

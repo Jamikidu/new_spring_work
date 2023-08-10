@@ -1,0 +1,19 @@
+package di_p.main;
+
+import di_p.HandPhone;
+
+public class DI_main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		HandPhone hp1 = new HandPhone();
+		
+		
+		
+		
+		System.out.println(hp1);
+
+	}
+
+}

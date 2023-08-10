@@ -1,0 +1,21 @@
+package di_p;
+
+public class FoodShop {
+
+	public Food order_food() {
+		System.out.println("order_snack 실행");
+		return new Food("군것질", "까자");
+	}
+	public Food order_bf() {
+		System.out.println("order_snack 실행");
+		return new Food("아침", "삶은 계란");
+	}
+	public Food order_launch() {
+		System.out.println("order_snack 실행");
+		return new Food("점심", "백반");
+	}
+	public Food order_dinner() {
+		System.out.println("order_snack 실행");
+		return new Food("저녁", "치킨");
+	}
+}

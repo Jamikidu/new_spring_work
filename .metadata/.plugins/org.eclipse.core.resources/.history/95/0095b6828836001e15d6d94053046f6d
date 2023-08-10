@@ -1,0 +1,30 @@
+package di_p;
+
+import java.util.Arrays;
+
+public class Class1 {
+	Student[] std;
+
+	public Class1(Student[] std) {
+		super();
+		this.std = std;
+		rankCalc();
+	}
+
+	public void rankCalc() {
+		
+		for(int i=0; i<std.length; i++) {
+			for(int j=0; j<std.length; j++) {
+				if(std[i].getSum() < std[j].getSum()) {
+					int p =std[i].getRank()+1;
+					std[i].setRank(p);
+				}
+			}
+		}
+	}
+	@Override
+	public String toString() {
+		return "Class1 [1반=>\n" + Arrays.toString(std) + "]";
+	}
+	
+}

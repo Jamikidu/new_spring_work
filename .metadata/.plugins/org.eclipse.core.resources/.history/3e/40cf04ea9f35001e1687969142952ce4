@@ -1,0 +1,36 @@
+package di_p;
+
+public class Bicycle {
+
+	String name;
+	Wheel wheel;
+	Handle handle;
+	Basket basket;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Wheel getWheel() {
+		return wheel;
+	}
+	public void setWheel(Wheel wheel) {
+		this.wheel = wheel;
+	}
+	public Handle getHandle() {
+		return handle;
+	}
+	public void setHandle(Handle handle) {
+		this.handle = handle;
+	}
+	public Basket getBasket() {
+		return basket;
+	}
+	public void setBasket(Basket basket) {
+		this.basket = basket;
+	}
+	
+	
+}

@@ -1,0 +1,24 @@
+package di_p.main;
+
+import di_p.Camera;
+import di_p.HandPhone;
+
+public class DI_main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		HandPhone hp1 = new HandPhone();
+		Camera cam1 = new Camera();
+		cam1.setName("전방카메라");
+		cam1.setPixel(1000);
+		hp1.setName("은하수23");
+		
+		
+		
+		
+		System.out.println(hp1);
+
+	}
+
+}

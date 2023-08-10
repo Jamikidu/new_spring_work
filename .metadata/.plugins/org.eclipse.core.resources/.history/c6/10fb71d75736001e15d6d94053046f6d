@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="di_p.Hambuger" name="hb1">
+		<constructor-arg value="빅맥" />
+
+		<constructor-arg value="1200" />
+	</bean>
+	
+	
+	
+	<bean class="di_p.HandPhone" name="hp2">
+		<property name="name">
+			<value>어른폰</value>
+		</property>
+		<property name="cam">
+			<ref bean="cam2"/>
+		</property>
+	</bean>
+	
+	<bean class="di_p.Camera" name="cam2">
+		<property name="name" value="후방카메라"/>		<property name="pixel" value="2000"/>
+	</bean>
+	
+	<bean class="di_p.Camera" name="cam3">
+		<constructor-arg>
+			<value>광학카메라</value>
+		</constructor-arg>
+		<constructor-arg value="1200" />
+	</bean>
+	<!--<bean class="di_p.Camera" name="cam4">
+		<constructor-arg>
+			<value>1400</value>
+		</constructor-arg>
+		<constructor-arg value="적외선카메라" />
+	</bean>-->
+	<bean class="di_p.Camera" name="cam5">
+		<constructor-arg name="pixel" value="2500" />
+		<constructor-arg name="name" value="망원카메라" />
+	</bean>
+</beans>

@@ -1,0 +1,22 @@
+package di_p;
+
+public class Wheel {
+
+	String wname;
+	int wheels;
+	
+	public String getName() {
+		return wname;
+	}
+	public void setName(String name) {
+		this.wname = name;
+	}
+	public int getWheels() {
+		return wheels;
+	}
+	public void setWheels(int wheels) {
+		this.wheels = wheels;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package di_p.main;
+
+public class DIColl {
+
+	String nick;
+	int age;
+	
+	int [] arr;
+	LinkedList arr2;
+	
+	Set ss1;
+	
+	Map mm1;
+}

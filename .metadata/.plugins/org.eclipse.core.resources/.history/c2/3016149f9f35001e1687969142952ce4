@@ -1,0 +1,7 @@
+package di_p;
+
+public class Handle {
+
+	String hname;
+	
+}

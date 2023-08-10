@@ -1,0 +1,57 @@
+package di_p;
+
+public class Bicycle implements BicycleService{
+
+	String biname;
+	Wheel wheel;
+	Handle handle;
+	Basket basket;
+	public String getBiname() {
+		return biname;
+	}
+	public void setBiname(String biname) {
+		this.biname = biname;
+	}
+	public Wheel getWheel() {
+		return wheel;
+	}
+	public void setWheel(Wheel wheel) {
+		this.wheel = wheel;
+	}
+	public Handle getHandle() {
+		return handle;
+	}
+	public void setHandle(Handle handle) {
+		this.handle = handle;
+	}
+	public Basket getBasket() {
+		return basket;
+	}
+	public void setBasket(Basket basket) {
+		this.basket = basket;
+	}
+	
+	@Override
+	public String toString() {
+		return "Bicycle [biname=" + biname + ", wheel=" + wheel + ", handle=" + handle + ", basket=" + basket + "]";
+	}
+	@Override
+	public void go() {
+		System.out.println(biname+"가 간다");
+	}
+	@Override
+	public void fix() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void fall() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+}

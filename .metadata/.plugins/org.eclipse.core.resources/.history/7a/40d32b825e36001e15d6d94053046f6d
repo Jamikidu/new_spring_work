@@ -1,0 +1,20 @@
+package di_p.main;
+
+import java.util.ArrayList;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Collection_main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context =
+				new ClassPathXmlApplicationContext("di_xml/collection.xml");
+		
+		ArrayList arr1 = context.getBean("arr1",ArrayList.class);
+		System.out.println(arr1);
+
+	}
+
+}

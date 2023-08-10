@@ -1,0 +1,48 @@
+package di_p;
+
+public class HambugerSet {
+
+}
+
+class Hambuger{
+	String name;
+	int cal, price;
+	
+	
+	public Hambuger(String name, int cal, int price) {
+		super();
+		this.name = name;
+		this.cal = cal;
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Hambuger [name=" + name + ", cal=" + cal + ", price=" + price + "]";
+	}
+	
+}
+
+class Side{
+	String name;
+	int cal, price;
+	
+	
+	public Side(String name, int cal, int price) {
+		super();
+		this.name = name;
+		this.cal = cal;
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Side [name=" + name + ", cal=" + cal + ", price=" + price + "]";
+	}
+	
+	
+	
+	
+}

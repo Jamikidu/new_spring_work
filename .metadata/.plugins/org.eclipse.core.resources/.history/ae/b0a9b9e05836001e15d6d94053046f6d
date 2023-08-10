@@ -1,0 +1,96 @@
+package di_p;
+
+public class HambugerSet {
+	String name;
+	Hambuger hb;
+	Side sd;
+	Drink dr;
+	int cal, price;
+	public HambugerSet(Hambuger hb, Side sd, Drink dr) {
+		super();
+		this.hb = hb;
+		this.sd = sd;
+		this.dr = dr;
+		calc();
+	}
+	void calc() {
+		name = hb.name+"셋트";
+		cal = hb.cal + sd.cal + dr.cal;
+		price = (int)((hb.price + sd.price + dr.price)*0.9);
+		
+	}
+	@Override
+	public String toString() {
+		return "HambugerSet [name=" + name + ", hb=" + hb + ", sd=" + sd + ", dr=" + dr + ", cal=" + cal + ", price="
+				+ price + "]";
+	}
+	
+	
+}
+
+class Hambuger{
+	String name;
+	int cal, price;
+	
+	
+	public Hambuger(String name, int cal, int price) {
+		super();
+		this.name = name;
+		this.cal = cal;
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Hambuger [name=" + name + ", cal=" + cal + ", price=" + price + "]";
+	}
+	
+}
+
+class Side{
+	String name;
+	int cal, price;
+	
+	
+	public Side(String name, int cal, int price) {
+		super();
+		this.name = name;
+		this.cal = cal;
+		this.price = price;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Side [name=" + name + ", cal=" + cal + ", price=" + price + "]";
+	}
+	
+}
+
+class Drink{
+	String name;
+	int cal, price, ice;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setCal(int cal) {
+		this.cal = cal;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public String getIce() {
+		return "아이스,아이스없음,핫".split(",")[ice];
+	}
+	public void setIce(int ice) {
+		this.ice = ice;
+	}
+	@Override
+	public String toString() {
+		return "Drink [name=" + name + ", cal=" + cal + ", price=" + price + ", ice=" + getIce() + "]";
+	}
+	
+	
+}

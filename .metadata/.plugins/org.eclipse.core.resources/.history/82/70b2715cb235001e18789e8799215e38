@@ -1,0 +1,18 @@
+package di_p.main;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Bicycle_main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("------------------------------------------");
+		AbstractApplicationContext context = //context 생성했을때 기본생성자가 생성
+				new ClassPathXmlApplicationContext("di_xml/first.xml");
+		
+		System.out.println("------------------------------------------");
+	}
+
+}

@@ -1,0 +1,20 @@
+package di_p.main;
+
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+
+public class DIColl {
+
+	String nick;
+	int age;
+	
+	int [] arr;
+	LinkedList arr2;
+	
+	Set ss1;
+	
+	Map mm1;
+	
+	
+}

@@ -1,0 +1,66 @@
+package di_p;
+
+public class SmartPhone {
+
+}
+
+class Battery{
+	String name;
+	int Ah;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAh() {
+		return Ah;
+	}
+	public void setAh(int ah) {
+		Ah = ah;
+	}
+	
+	
+}
+
+class Mscreen{
+	String name;
+	int size;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+	
+}
+
+class Mcamera{
+	String name;
+	int pixel;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPixel() {
+		return pixel;
+	}
+	public void setPixel(int pixel) {
+		this.pixel = pixel;
+	}
+	
+}
+
+

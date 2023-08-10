@@ -1,0 +1,29 @@
+package di_p;
+
+public class CoffeeShop {
+	
+	Coffee cof;
+	
+	public Coffee order_am() {
+		System.out.println("order_am 실행");
+		return new Coffee("아메리카노",1400);
+	}
+	
+}
+
+
+/*class Coffee{
+	String name;
+	int price;
+	
+	public Coffee(String name, int price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Coffee [name=" + name + ", price=" + price + "]";
+	}*/
+	

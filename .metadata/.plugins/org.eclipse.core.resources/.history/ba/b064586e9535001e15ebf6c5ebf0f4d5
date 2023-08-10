@@ -1,0 +1,12 @@
+package di_p;
+
+public class HandPhone {
+	int 42;
+	42
+	String name;
+}
+
+
+class Camera{
+	
+}

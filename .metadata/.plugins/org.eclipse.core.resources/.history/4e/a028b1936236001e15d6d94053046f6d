@@ -1,0 +1,75 @@
+package di_p.main;
+
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
+
+public class DIColl {
+
+	String nick;
+	
+	int age;
+	
+	int [] arr, arr1;
+	
+	LinkedList arr2;
+	
+	Set ss1;
+	
+	Map mm1;
+	
+	public void setArr(int[] arr) {
+		this.arr = arr;
+	}
+	public int[] getArr1() {
+		return arr;
+	}
+	
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int[] getArr() {
+		return arr;
+	}
+	
+	public void setArr1(int... arr) {
+		this.arr = arr;
+	}
+
+	public LinkedList getArr2() {
+		return arr2;
+	}
+
+	public void setArr2(LinkedList arr2) {
+		this.arr2 = arr2;
+	}
+
+	public Set getSs1() {
+		return ss1;
+	}
+
+	public void setSs1(Set ss1) {
+		this.ss1 = ss1;
+	}
+
+	public Map getMm1() {
+		return mm1;
+	}
+
+	public void setMm1(Map mm1) {
+		this.mm1 = mm1;
+	}
+}

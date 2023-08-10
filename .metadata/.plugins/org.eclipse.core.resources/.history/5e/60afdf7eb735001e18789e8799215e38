@@ -1,0 +1,36 @@
+package di_p.bicycle;
+
+public class Wheel {
+
+	String wname;
+	int wheels;
+	
+	
+	
+	
+	public String getWname() {
+		return wname;
+	}
+
+
+	public void setWname(String wname) {
+		this.wname = wname;
+	}
+
+
+	public int getWheels() {
+		return wheels;
+	}
+
+
+	public void setWheels(int wheels) {
+		this.wheels = wheels;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Wheel [wname=" + wname + ", wheels=" + wheels + "]";
+	}
+	
+}

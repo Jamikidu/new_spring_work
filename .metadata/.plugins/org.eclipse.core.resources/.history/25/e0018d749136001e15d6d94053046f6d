@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!--<bean class="java.util.List" name="kors">
+		<property name="국어점수합">
+			<list>
+				<value>11</value>
+				<value>22</value>
+				<value>33</value>
+			</list>
+		</property>
+	</bean>	-->
+
+	
+	
+	<bean class="di_p.Student" name="std1">
+		<property name="name" value="일화룡" />
+		<property name="scores" value="20,34,55"/>
+	</bean>
+	<bean class="di_p.Student" name="std2">
+		<property name="name" value="이화룡" />
+		<property name="scores" value="30,45,66"/>
+	</bean>
+	<bean class="di_p.Student" name="std3">
+		<property name="name" value="삼화룡" />
+		<property name="scores" value="50,67,88"/>
+	</bean>
+	<bean class="di_p.Student" name="std4">
+		<property name="name" value="사화룡" />
+		<property name="scores" value="10,23,44"/>
+	</bean>
+	<bean class="di_p.Student" name="std5">
+		<property name="name" value="오화룡" />
+		<property name="scores" value="40,56,77"/>
+	</bean>
+	<bean class="di_p.Student" name="std6">
+		<property name="name" value="육화룡" />
+		<property name="scores" value="60,78,99"/>
+	</bean>
+
+
+	<bean class="di_p.Class1" name="class1">
+		<constructor-arg>
+			<list>
+				<ref bean="std1"/>
+				<ref bean="std2"/>
+				<ref bean="std3"/>
+				<ref bean="std4"/>
+				<ref bean="std5"/>
+				<ref bean="std6"/>
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>

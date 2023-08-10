@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Set_iterator.java&apos; to &apos;springProj/src/main/java/di_p.main&apos;&#x0D;&#x0A;- Original project: &apos;spring_work&apos;&#x0D;&#x0A;- Destination element: &apos;springProj/src/main/java/di_p.main&apos;&#x0D;&#x0A;- Original element: &apos;Set_iterator.java&apos;" description="Copy file" destination="=springProj/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;di_p.main" element1="springProj/src/main/java/di_p/Set_iterator.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1691628025498" units="0" version="1.0"/>
+</session>

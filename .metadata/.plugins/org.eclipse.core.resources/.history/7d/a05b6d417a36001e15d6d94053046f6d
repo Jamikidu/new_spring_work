@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="di_p.Calc.Student" name="stdarr1">
+		<constructor-arg name="std1" ref="std1" />
+	</bean>
+	
+	<bean class="di_p.Calc.Student" name="std1">
+		<property name="name" value="학생1" />
+		<property name="scores" value="12,23,34"/>
+
+	</bean>
+	
+	<bean class="di_p.Calc.Student" name="std1">
+		<property name="name" value="학생1" />
+		<property name="scores" value="12,23,34"/>
+
+	</bean>
+	<bean class="di_p.Student" name="std2">
+		<property name="name" value="학생2" />
+		<property name="scores" value="23,34,45"/>
+
+	</bean>
+	<bean class="di_p.Student" name="std3">
+		<property name="name" value="학생3" />
+		<property name="scores" value="34,45,56"/>
+
+	</bean>
+	<bean class="di_p.Student" name="std4">
+		<property name="name" value="학생4" />
+		<property name="scores" value="45,56,67"/>
+
+	</bean>
+	<bean class="di_p.Student" name="std5">
+		<property name="name" value="학생5" />
+		<property name="scores" value="56,67,78"/>
+
+	</bean>
+	
+	
+
+</beans>

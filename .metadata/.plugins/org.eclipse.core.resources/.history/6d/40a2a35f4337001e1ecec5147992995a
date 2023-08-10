@@ -1,0 +1,17 @@
+package di_p;
+
+public class SmartPhone {
+
+}
+
+class Battery{
+	String name;
+}
+
+class Mscreen{
+	
+}
+
+class Mcamera{
+	
+}

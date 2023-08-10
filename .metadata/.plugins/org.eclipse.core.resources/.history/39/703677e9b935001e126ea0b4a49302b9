@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<bean class="di_p.bicycle.Bicycle" name="bi1">
+		<property name="biname">
+			<value>세발자전거</value>
+		</property>
+		<property name="whe">
+			<ref bean="wheel1"/>
+		</property>
+		<property name="han">
+			<ref bean="handle"/>
+		</property>
+	</bean>
+	<bean class="di_p.bicycle.Bicycle" name="bi2">
+		<property name="biname">
+			<value>포카리자전거</value>
+		</property>
+		<property name="whe">
+			<ref bean="whee2"/>
+		</property>
+		</property>
+		<property name="han">
+			<ref bean="handle"/>
+		</property>
+		<property name="bas">
+			<ref bean="basket"/>
+		</property>
+	</bean>
+	<bean class="di_p.bicycle.Bicycle" name="bi3">
+		<property name="biname">
+			<value>MTB</value>
+		</property>
+		<property name="whe">
+			<ref bean="wheel1"/>
+		</property>
+		</property>
+		<property name="han">
+			<ref bean="handle"/>
+		</property>
+	</bean>
+	<bean class="di_p.bicycle.Wheel" name="wheel1">
+		<property name="wname" value="바퀴1"></property>
+	</bean>
+	<bean class="di_p.bicycle.Wheel" name="wheel2">
+		<property name="wname" value="바퀴2"></property>
+	</bean>
+	<bean class="di_p.bicycle.Wheel" name="wheel3">
+		<property name="wname" value="바퀴3"></property>
+	</bean>
+	<bean class="di_p.bicycle.Handle" name="handle">
+		<property name="hname" value="공용핸들"></property>
+	</bean>
+	<bean class="di_p.bicycle.Basket" name="basket">
+		<property name="bname" value="공용바구니"></property>
+	</bean>
+
+
+</beans>

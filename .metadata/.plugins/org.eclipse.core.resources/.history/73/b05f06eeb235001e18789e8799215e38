@@ -1,0 +1,7 @@
+package di_p;
+
+public interface BicycleService {
+	public void go();
+	public void fix();
+	public void fall();
+}

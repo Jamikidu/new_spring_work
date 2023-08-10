@@ -1,0 +1,9 @@
+package di_p;
+
+public class FoodShop {
+
+	public Food order_bf() {
+		System.out.println("order_bf 실행");
+		return new Coffee("아침메뉴", 옴뇸뇸);
+	}
+}

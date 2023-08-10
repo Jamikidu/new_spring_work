@@ -1,0 +1,9 @@
+package di_p;
+
+public class FoodShop {
+
+	public Food order_snack() {
+		System.out.println("order_bf 실행");
+		return new Food("군것질", 1000);
+	}
+}

@@ -1,0 +1,22 @@
+package di_p;
+
+public class AutoCar {
+
+	Engine eng;
+	List<Wheel> whs;
+	Handle hdl;
+	
+}
+
+
+class Engine{
+	
+}
+
+class Wheel{
+	
+}
+
+class Handle{
+	
+}
