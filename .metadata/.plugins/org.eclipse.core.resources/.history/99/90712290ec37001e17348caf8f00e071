@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="di_p.MyBeanPostProcessor"/>
+	
+	<bean class="di_p.Coffee" name="co1">
+		<constructor-arg value="아메리카노"/>
+		<constructor-arg value="1500"/>
+	</bean>
+	
+	<bean class="di_p.Umbrella" name="um1" p:name="노랑우산" p:price="3000"/>
+	<bean class="di_p.Umbrella" name="um2" p:name="빨강우산" p:price="4000"/>
+	<bean class="di_p.Umbrella" name="um3" p:name="투명우산" p:price="5000"/>
+	<bean class="di_p.MyBeanFactoryPostProcessor"/>
+	
+
+</beans>

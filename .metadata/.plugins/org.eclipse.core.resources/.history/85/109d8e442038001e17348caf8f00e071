@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+http://www.springframework.org/schema/context 
+https://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
+	
+	<bean name="cof1" class="anno_p.Coffee" p:name="아메리카노" p:price="2500" />
+	<!--<bean name="cof2" class="anno_p.Coffee" p:name="카페라떼" p:price="3500" />
+	<bean name="cof3" class="anno_p.Coffee" p:name="바닐라자바칩펄라떼" p:price="5000" />-->
+	
+	<bean name="bean1" class="anno_p.Beans" p:region="라틴아메리카" p:name="콜롬비아수프리모" />
+	<bean name="bean2" class="anno_p.Beans" p:region="아프리카" p:name="케냐AA" />
+	<bean name="bean3" class="anno_p.Beans" p:region="아시아" p:name="인도네시아만델링" />
+	
+	<bean name="ingre1" class="anno_p.Ingredients" p:type="고체형1" p:name="자바칩" />
+	<bean name="ingre2" class="anno_p.Ingredients" p:type="고체형2" p:name="시리얼" />
+	<bean name="ingre3" class="anno_p.Ingredients" p:type="액체형1" p:name="바닐라시럽" />
+	<bean name="ingre4" class="anno_p.Ingredients" p:type="액체형2" p:name="우유" />
+	<bean name="ingre5" class="anno_p.Ingredients" p:type="젤리형1" p:name="펄" />
+		
+	
+	<context:annotation-config />
+</beans>

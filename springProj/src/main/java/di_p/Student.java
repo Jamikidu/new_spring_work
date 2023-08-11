@@ -11,6 +11,9 @@ public class Student implements Comparable<Student>{
 	int rank = 1;
 	float avg;
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 	public int getRank() {

@@ -1,0 +1,72 @@
+package anno_p;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class Coffee {
+
+
+	String name;
+	int price;
+	
+	@Autowired
+	@Qualifier("bean1")
+	Beans beans;
+	
+	
+	Ingredients ingre;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public void setBeans(Beans beans) {
+		this.beans = beans;
+	}
+	@Autowired(required = false)
+	public void setIngre(Ingredients ingre) {
+		this.ingre = ingre;
+	}
+	
+	@Override
+	public String toString() {
+		return "Coffee [name=" + name + ", beans=" + beans + ", ingre=" + ingre + ", price=" + price + "]";
+	}
+	
+}
+
+class Beans{
+	String region, name;
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Beans [name=" + name + ", region=" + region + "]";
+	}
+	
+}
+
+class Ingredients{
+	String[] type;
+	String name;
+
+
+	
+}

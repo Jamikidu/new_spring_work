@@ -1,0 +1,20 @@
+package anno_p;
+
+public class RCCar {
+
+	String name;
+	Motor mtr;
+}
+
+class RCWheel{
+	String name;
+	int size;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+}

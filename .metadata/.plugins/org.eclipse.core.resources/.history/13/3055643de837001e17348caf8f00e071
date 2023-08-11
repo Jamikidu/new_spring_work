@@ -1,0 +1,6 @@
+package di_p;
+
+public class Umbrella {
+	String name;
+	int price;
+}

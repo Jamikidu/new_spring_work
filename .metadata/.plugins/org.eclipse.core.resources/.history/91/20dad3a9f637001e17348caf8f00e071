@@ -1,0 +1,99 @@
+package di_p;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+public class StudentMyBeanPostProcessor implements BeanPostProcessor {
+
+	@Override
+	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+		//System.out.println("StudentMyBeanPostProcessor.BeforeInit 실행:"+beanName+" => " + bean);
+		/*
+		if(bean.getClass().getName().equals("di_p.Student2")) {
+			System.out.println(bean+"우산인가");
+			
+			Umbrella uu = (Umbrella)bean;
+			
+			if(uu.getPrice() >= 5000) {
+				uu.setType("비싸");
+			}
+			
+		}
+		*/
+		return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+	}
+	
+	@Override
+	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+		
+		//System.out.println("StudentMyBeanPostProcessor.AfterInit 실행:"+beanName+" => " + bean);
+		
+		if(bean.getClass().getName().equals("di_p.Student2")) {
+			System.out.println(bean+" After 학생인가");
+			Student2 st = (Student2)bean;
+			
+			if(st.getName().contains("red")) {
+				System.out.println(" red 포함 확인");
+				if(st.getAvg()>=90) {
+					st.setGrade("수");
+				}
+				else if(st.getAvg()>=80) {
+					st.setGrade("우");
+				}
+				else if(st.getAvg()>=70) {
+					st.setGrade("미");
+				}
+				else if(st.getAvg()>=60) {
+					st.setGrade("양");
+				}
+				else {
+					st.setGrade("가");
+				}
+
+			}
+			
+			if(st.getName().contains("blue")) {
+				System.out.println(" blue 포함 확인");
+				if(st.getAvg()>=90) {
+					st.setGrade("A");
+				}
+				else if(st.getAvg()>=80) {
+					st.setGrade("B");
+				}
+				else if(st.getAvg()>=70) {
+					st.setGrade("C");
+				}
+				else if(st.getAvg()>=60) {
+					st.setGrade("D");
+				}
+				else {
+					st.setGrade("E");
+				}
+				
+			}
+			
+			if(st.getName().contains("yellow")) {
+				System.out.println(" yellow 포함 확인");
+				if(st.getAvg()>=90) {
+					st.setGrade("1");
+				}
+				else if(st.getAvg()>=80) {
+					st.setGrade("2");
+				}
+				else if(st.getAvg()>=70) {
+					st.setGrade("3");
+				}
+				else if(st.getAvg()>=60) {
+					st.setGrade("4");
+				}
+				else {
+					st.setGrade("5");
+				}
+				
+			}
+			
+		}
+		
+		return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+	}
+}
