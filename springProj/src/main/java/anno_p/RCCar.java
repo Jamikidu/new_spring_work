@@ -7,8 +7,8 @@ public class RCCar {
 	String name;
 	@Resource
 	Motor mtr;
-	//@Resource(required = false)
-	@Resource(name="ww2") //이름으로 특정 인스턴스를 지정해줌
+	//@Resource(required = false) required 기능 호환 안됨
+	@Resource(name="ww2") //(휠이 여러개면 오류가 나기 때문에) 이름으로 특정 인스턴스를 지정해줌 
 	RCWheel rw1;
 	
 	RCWheel rw2, rw3, rw4;

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+http://www.springframework.org/schema/context 
+https://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
+	
+	<bean class="obar.ObarBeanPostProcessor"/>
+	
+	<bean name="bar1" class="obar.Obar" p:name="오바술집">
+		<property name="table">
+			<array>
+				<ref bean="table1" />
+				<ref bean="table2" />
+			</array>
+	    </property>
+	</bean>
+	
+	<bean name="table1" class="obar.BarTable" p:name="1번테이블">
+		<!--<property name="alc">
+	        <list>
+	            <ref bean="alc1" />
+	            <ref bean="alc2" />
+	        </list>
+	    </property>
+	    <property name="cui">
+	        <list>
+	            <ref bean="cui1" />
+	        </list>
+	    </property>-->
+	</bean>
+	<bean name="table2" class="obar.BarTable" p:name="2번테이블">
+		<property name="alc">
+	        <list>
+	            <ref bean="alc1" />
+	            <ref bean="alc2" />
+	        </list>
+	    </property>
+	    <property name="cui">
+	        <list>
+	            <ref bean="cui1" />
+	        </list>
+	    </property>
+	</bean>
+	
+	<bean name="alc1" class="obar.Alcohol" p:type="양조주" p:name="맥주" p:aprice="2000" p:anum="3" />
+	<bean name="alc2" class="obar.Alcohol" p:type="증류주" p:name="소주" p:aprice="2500" p:anum="2" />
+	<bean name="alc3" class="obar.Alcohol" p:type="증류주" p:name="양주" p:aprice="40000" p:anum="1" />
+	<bean name="alc4" class="obar.Alcohol" p:type="혼합주" p:name="폭탄주" p:aprice="8000" p:anum="4" />
+	
+	<bean name="cui1" class="obar.Cuisine" p:name="후라이드치킨" p:cprice="21000" p:cnum="1" />
+	<bean name="cui2" class="obar.Cuisine" p:name="곱창" p:cprice="24000" p:cnum="1" />
+	<bean name="cui3" class="obar.Cuisine" p:name="스테이크" p:cprice="50000" p:cnum="1" />
+	<bean name="cui4" class="obar.Cuisine" p:name="회" p:cprice="32000" p:cnum="1" />
+
+	
+	<bean class="obar.ObarBeanFactoryPostProcessor"/>
+	
+	<context:annotation-config />
+</beans>

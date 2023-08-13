@@ -19,8 +19,6 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	<bean class="di_p.Student2" name="st_yellow3" p:name="yellow_삼길동" p:scores="46,53,64"/>
 	
 	
-	<!--<bean class="di_p.Student2" name="st4" p:name="pink" p:scores="77,88,99"/>
-	<bean class="di_p.Student2" name="st5" p:name="green" p:scores="91,93,95"/>-->
 	
 	<bean class="di_p.StudentBeanFactoryPostProcessor"/>
 	

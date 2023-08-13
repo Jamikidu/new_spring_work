@@ -20,6 +20,7 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	p:name="어른폰" p:bat-ref="bat3300" p:msc-ref="mscreen1"/>
 	
 	<!-- byName 버전-->
+	
 	<bean class="di_p.SmartPhone" name="phone3" autowire="byName" 
 	p:name="은하수폰" />
 	

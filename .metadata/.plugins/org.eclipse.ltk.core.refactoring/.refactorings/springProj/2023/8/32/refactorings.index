@@ -32,3 +32,13 @@
 1691743544610	Rename resource 'required.xml'
 1691744669306	Rename type 'RequiredCoffee_main'
 1691744699472	Rename resource 'required_coffee.xml'
+1691826294525	Copy compilation unit
+1691826299317	Rename type 'Cbar'
+1691826348716	Copy file
+1691854010619	Move compilation unit
+1691854015857	Move compilation unit
+1691854101947	Move compilation units
+1691854110269	Move compilation units
+1691854112968	Copy compilation units
+1691854125632	Rename type 'StudentBeanFactoryPostProcessor'
+1691854144657	Rename type 'StudentBeanPostProcessor'
