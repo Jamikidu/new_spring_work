@@ -8,11 +8,16 @@ https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 http://www.springframework.org/schema/context 
 https://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
 
-	<bean name="ge3" class="anno_cloth.Gear" p:name="고글3" p:kind="안경류" p:use="물가용" />
+	<bean name="ge3" class="anno_cloth.Gear" p:kind="안경류" p:name="수경1" p:use="물가용" />
+	<bean name="ge4" class="anno_cloth.Gear" p:kind="의복류" p:name="넥타이1" p:use="경조사용" />
 	<bean name="clo3" class="anno_cloth.Clothing" p:name="상하의조합3" p:top="수영복상의1" p:bottoms="수영복하의1" />
-	<bean name="sh3" class="anno_cloth.Shoes" p:name="신발3" p:use="설산용(아이젠)" p:size="260" />
+	<bean name="clo4" class="anno_cloth.Clothing" p:name="상하의조합4" p:top="정장상의1" p:bottoms="정장하의1" />
 	<bean name="sh0" class="anno_cloth.Shoes" p:name="맨발" p:use="무엇이든" />
+	<bean name="sh3" class="anno_cloth.Shoes" p:name="등산화2" p:use="설산용(아이젠)" p:size="260" />
+	<bean name="sh4" class="anno_cloth.Shoes" p:name="구두1" p:use="경조사용" />
+	
 	<bean name="set3" class="anno_cloth.ClothsSet" p:setName="수영복세트1" p:gear-ref="ge3" p:clo-ref="clo3" p:sho-ref="sh0" />
+	<bean name="set4" class="anno_cloth.ClothsSet" p:setName="정장세트1" p:gear-ref="ge4" p:clo-ref="clo4" p:sho-ref="sh4" />
 	
 	<context:annotation-config />
 </beans>

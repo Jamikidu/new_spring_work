@@ -27,11 +27,11 @@ public class AnnoConfig_cloth {
 	}
 	@Bean
 	Shoes sh1() {
-		return new Shoes("신발1", "등산용");
+		return new Shoes("등산화1", "등산용");
 	}
 	@Bean
 	Shoes sh2() {
-		return new Shoes("신발2", "스키장용");
+		return new Shoes("방한화1", "스키장용");
 	}
 	@Bean
 	ClothsSet set1(Gear ge1,Clothing clo1,Shoes sh1) {

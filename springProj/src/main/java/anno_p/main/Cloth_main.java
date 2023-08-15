@@ -28,10 +28,11 @@ public class Cloth_main {
 		System.out.println(context.getBean("clo3"));
 		System.out.println(context.getBean("sh2"));
 		System.out.println(context.getBean("sh3"));
-		System.out.println("\n=================================================\n");
+		System.out.println("하위클래스 생성확인..!!\n=================================================\n");
 		System.out.println(context.getBean("set1"));
 		System.out.println(context.getBean("set2"));
 		System.out.println(context.getBean("set3"));
+		System.out.println(context.getBean("set4"));
 		
 	}
 
