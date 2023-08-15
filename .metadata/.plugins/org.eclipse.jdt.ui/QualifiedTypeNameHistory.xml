@@ -36,4 +36,7 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="anno_p.Obar"/>
+    <fullyQualifiedTypeName name="anno_cloth.Gear"/>
+    <fullyQualifiedTypeName name="anno_cloth.Clothing"/>
+    <fullyQualifiedTypeName name="anno_cloth.AnnoConfig_cloth"/>
 </qualifiedTypeNameHistroy>

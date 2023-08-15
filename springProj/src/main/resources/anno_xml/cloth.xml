@@ -7,19 +7,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 https://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
 http://www.springframework.org/schema/context 
 https://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
+
+	<bean name="ge3" class="anno_cloth.Gear" p:name="고글3" p:kind="안경류" p:use="물가용" />
+	<bean name="clo3" class="anno_cloth.Clothing" p:name="상하의조합3" p:top="수영복상의1" p:bottoms="수영복하의1" />
+	<bean name="sh3" class="anno_cloth.Shoes" p:name="신발3" p:use="설산용(아이젠)" p:size="260" />
+	<bean name="sh0" class="anno_cloth.Shoes" p:name="맨발" p:use="무엇이든" />
+	<bean name="set3" class="anno_cloth.ClothsSet" p:setName="수영복세트1" p:gear-ref="ge3" p:clo-ref="clo3" p:sho-ref="sh0" />
 	
-	<bean name="rc1" class="anno_p.RCCar" p:name="아스라다" />
-	<bean name="wm1" class="anno_p.WashMachine" p:name="그랑데" />
-	
-	<bean name="mtr" class="anno_p.Motor" p:name="블랙라벨" p:power="100" />
-	<bean name="mmm2" class="anno_p.Motor" p:name="골드라벨" p:power="200" />
-	<bean name="mt" class="anno_p.Motor" p:name="골든벨" p:power="60" />
-	
-	<bean name="qwer" class="anno_p.Drum" p:name="통돌이" p:size="20" />
-	
-	<bean name="ww1" class="anno_p.RCWheel" p:name="광폭" p:size="21" />
-	<bean name="ww2" class="anno_p.RCWheel" p:name="스노우" p:size="20" />
-	
-	<!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />-->
 	<context:annotation-config />
 </beans>
