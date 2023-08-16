@@ -20,13 +20,6 @@ public class FiguresMain {
 		fig.Circle(4);
 		fig.Rectangle(4,3);
 		fig.RightTriangle(4,3,5);
-//		
-//		
-		
-//		Circle fig1 = context.getBean("circle",Circle.class);
-//		fig1.setR(4);
-//		System.out.println(fig1.getCirArea()+"cm2");
-//		System.out.println(fig1.getCirRound()+"cm");
 		
 
 	}

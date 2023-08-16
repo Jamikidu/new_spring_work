@@ -93,8 +93,11 @@ public class exam_main2 {
 		int maxnum=0, minnum=0, sum=0;
 		for(int i=0;i<arr1.length;i++) {
 			arr1[i] = sc.nextInt();
-			maxnum = arr1[0];
-			minnum = arr1[0];
+			if(i==0) {
+				maxnum = arr1[0];
+				minnum = arr1[0];
+			}
+			
 			sum += arr1[i];
 			if(maxnum < arr1[i]) {
 				maxnum = arr1[i];

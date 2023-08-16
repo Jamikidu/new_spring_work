@@ -16,8 +16,13 @@ https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<aop:config>
 		<aop:aspect ref="aroundFigures">
-			<aop:around method="culcCircle" 
-			pointcut="execution(public * aop_p.webToon..* (float))" /> 
+			
+			<aop:pointcut id="circle" expression="execution(public * aop_p.webToon.Figure*.* (..))" />
+			<aop:after method="culcCircle" 
+			pointcut-ref="circle"/>			
+			
+			<!--<aop:around method="culcCircle" 
+			pointcut="execution(public * aop_p.webToon..* (float))" />-->
 			
 			<aop:around method="culcRectangle" 
 			pointcut="execution(public * aop_p.webToon..* (int,int))" /> 

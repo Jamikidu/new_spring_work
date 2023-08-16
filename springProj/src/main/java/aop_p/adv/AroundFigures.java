@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AroundFigures {
 
-	void culcCircle(ProceedingJoinPoint joinPoint) {
-		Object res = null;
+	void culcCircle(JoinPoint joinPoint) {
+		//Object res = null;
 
 		System.out.println(" >> culcCircle 진입: "+joinPoint.toString());
 		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
@@ -19,7 +19,7 @@ public class AroundFigures {
 		try {
 			float PI = (float)Math.floor(Math.PI*100)/100;
 			
-			res = joinPoint.proceed();
+			//res = joinPoint.proceed();
 			float r = (float)joinPoint.getArgs()[0];
 			float cirArea = r*r*PI;
 			float cirRound = 2*PI*r;
@@ -35,7 +35,6 @@ public class AroundFigures {
 	}
 	
 	void culcRectangle(ProceedingJoinPoint joinPoint) {
-		Object res = null;
 		
 		System.out.println(" >> culcRectangle 진입: "+joinPoint.toString());
 		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
@@ -43,7 +42,7 @@ public class AroundFigures {
 		
 		try {
 			
-			res = joinPoint.proceed();
+			//Object res = joinPoint.proceed();
 			int recw = (int)joinPoint.getArgs()[0];
 			int rech = (int)joinPoint.getArgs()[1];
 			int recArea = recw * rech;
@@ -60,14 +59,13 @@ public class AroundFigures {
 	}
 	
 	void culcRightTriangle(ProceedingJoinPoint joinPoint) {
-		Object res = null;
 		
 		System.out.println(" >> culcRightTriangle 진입: "+joinPoint.toString());
 		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
 		
 		
 		try {
-			res = joinPoint.proceed();
+			//Object res = joinPoint.proceed();
 			int rigw = (int)joinPoint.getArgs()[0];
 			int righ = (int)joinPoint.getArgs()[1];
 			int hypotenuse = (int)joinPoint.getArgs()[2];
