@@ -22,6 +22,7 @@ public class Config_main {
 		System.out.println(context.getBean("pb"));
 		System.out.println(context.getBean("nb"));
 		System.out.println(context.getBean("rc1"));
+		
 
 	}
 

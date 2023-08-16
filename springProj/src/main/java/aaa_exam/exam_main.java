@@ -83,5 +83,12 @@ public class exam_main {
 		
 		int [] arr1 = {23,45,67};
 		int arrmax = arr1[0];
+		if(arr1[1]>arrmax) {
+			arrmax = arr1[1];
+		}
+		if(arr1[2]>arrmax) {
+			arrmax = arr1[2];
+		}
+		System.out.println(arrmax);
 	}
 }

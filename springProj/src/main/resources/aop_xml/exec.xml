@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:aop="http://www.springframework.org/schema/aop" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+http://www.springframework.org/schema/context 
+https://www.springframework.org/schema/context/spring-context-4.3.xsd 
+http://www.springframework.org/schema/aop 
+https://www.springframework.org/schema/aop/spring-aop-4.3.xsd"> 
+	
+	<context:component-scan base-package="aop_p.webToon"/>
+	<context:component-scan base-package="aop_p.adv"/>
+	
+	<aop:config>
+		<aop:aspect ref="execAdvice1">
+			<aop:before method="retString" 
+			pointcut="execution(public String aop_p.webToon..* (..))" /><!-- String 값을 호출하는 메서드면 해당-->
+			
+			<aop:before method="paramInt" 
+			pointcut="execution(public * aop_p.webToon..* (int, ..))"/><!-- 형에 상관없이 파라미터에 int가 들어가는 메서드면 해당-->
+			
+			<aop:pointcut id="dog" expression="execution(public * aop_p.webToon..dog* (..))" /><!-- 메서드 이름에 dog로 시작하는 메서드면 해당-->
+			<aop:before method="nameDog" 
+			pointcut-ref="dog"/>
+			
+			<aop:pointcut id="classKang" expression="execution(public * aop_p.webToon.Kang*.* (..))" /><!-- 메서드 이름에 dog로 시작하는 메서드면 해당-->
+			<aop:after method="claKang" 
+			pointcut-ref="classKang"/>
+			<!-- before는 메서드 실행 전에 after는 메서드 실행 후에-->
+			<aop:after method="endO" 
+			pointcut="execution(public * aop_p.webToon.*.*o (..))"/><!--메서드 이름이 o로 끝나는 메서드면 해당-->
+			
+			<aop:after method="oAndKang" 
+			pointcut="execution(public * aop_p.webToon.*.*o (..)) and execution(public * aop_p.webToon.KangBada*.* (..))"/><!--o로 끝나고 KangBada로 시작하는-->
+			
+			<aop:after method="oOrJo" 
+			pointcut="execution(public * aop_p.webToon.*.*o (..)) or execution(public * aop_p.webToon.Jo*.* (..))"/><!--o로 끝나거나 Jo로 시작하는-->
+		</aop:aspect>
+		
+		<aop:aspect ref="execAdvice2">
+			<aop:after method="ok" 
+			pointcut="execution(public * aop_p.webToon.*.*o (..)) and execution(public * aop_p.webToon.KangBada*.* (..))"/>
+			
+			<aop:before method="oOrJo" 
+			pointcut="execution(public * aop_p.webToon.*.*o (..)) or execution(public * aop_p.webToon.Jo*.* (..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>

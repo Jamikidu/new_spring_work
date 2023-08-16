@@ -34,9 +34,12 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
     <fullyQualifiedTypeName name="jakarta.annotation.Resource"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="anno_p.Obar"/>
     <fullyQualifiedTypeName name="anno_cloth.Gear"/>
     <fullyQualifiedTypeName name="anno_cloth.Clothing"/>
     <fullyQualifiedTypeName name="anno_cloth.AnnoConfig_cloth"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ClassPathBeanDefinitionScanner"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>
