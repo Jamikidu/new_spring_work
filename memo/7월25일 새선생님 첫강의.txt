@@ -1,0 +1,39 @@
+class - 유사한 인스턴스를 묶어놓은 집단
+클래스 3요소 생성자 멤버변수 메서드
+
+% 객체지향(5가지특징 상속,추상화,다형성,캡슐화,정보은닉) %
+% 객체 지향 프로그래밍 - 각각의 객체는 메시지를 주고받고, 데이터를 처리함 %
+% 클래스 정의, 인스턴스 선언, 인스턴스 생성, 인스턴스 멤버 호출 - 4단계 %
+톰캣을 쓰는 이유 - 보안이 좋음
+서버의 동적처리를 위해 사용하는 WAS, JSP
+TCP - 3way 3번 왔다갔다함
+UDP - 고객확인안하고 그냥 달려감
+파라미터 - 매개변수(재료) - JSP에서 사용
+Instance 생성(서블릿 객체 생성) - init() - service():doGet(),doPost() 해줌 - destory()로 빠져나옴  //서블릿라이프싸이클
+
+자바 - editor - syntax coloring - java - classes(빨강,볼드) methods(주황,이탈릭) numbers(분홍)
+%%블로그라도 만들어서 내가 공부했던거 정리하고 모르는것 찾아가면서 메우기%%
+
+was => JSP => '웹서버'와 '데이터베이스(DB)' 사이에 중간단계이자 매개체
+JSP 는 크게 3가지로 나눠어진다
+1.스크립트 태그 - 디렉티브(지시어) 엘리먼트, 스크립팅 원소{(선언(Declartion), 스크립트릿(scriptlet), 표현식(Expression)} / 
+2.액션 태그
+3.EL
+
+#내장객체(내장변수) 9개#
+-page / this. JSP가 서블릿으로 변환 되었을때 그 Servlet 객체자신
+-request / HttpServletRequest
+-response / HttpServletResponse
+-session / HttpSession  // 서버내에 계속 돌아다님
+-application / ServletContext  //서버가 떳다가 죽을때까지 존재
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-out / JspWriter - Servlet에서 PrintWriter와 같은 역할
+-config / ServletConfig
+-pageContext / Servelet에는 없는 것으로 다른 내장객체들을 생성할 수 있다.
+-exception / Throwable.JSP가 page 지시자 태그의 isErrorPage=true 일 경우만 생성됨
+
+java는 왜 8, 11버전을 많이 쓸까? --> java lts ( LTS 란 Long Term Support 의 약자이며 출시 후 8년 이라는 긴 기간동안 보안 업데이트와 버그 수정을 지원할 것임을 선언한 버전)
+
+Project Facets로 들어가서 버전에 맞게 설정해서 사용
+
+과제 : MVC 다 외우기

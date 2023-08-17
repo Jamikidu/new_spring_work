@@ -20,9 +20,15 @@ public class exam_main3 {
 		}
 		*/
 		String str2 = sc.nextLine();
+		char maxchar = str2.charAt(0);
+		
 		String[] strarr1 = str2.split("");
 		System.out.println(Arrays.toString(strarr1));
 		for(int i=0;i<strarr1.length;i++) {
+			if((int)maxchar<(int)str2.charAt(i)) {
+				maxchar = str2.charAt(i);
+			}
 		}
+		System.out.println("제일 큰 글자: "+maxchar);
 	}
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context-4.3.xsd
+http://www.springframework.org/schema/aop
+https://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<context:component-scan base-package="aop_p.adv"/>
+	<context:component-scan base-package="aop_p.model"/>
+	<aop:config>
+		<aop:aspect ref="studAdvice">
+			
+			<aop:around method="employee" 
+				pointcut="args(qq,ww)" />
+			<aop:around method="general" 
+				pointcut="args(qq,ww,tt)" />
+			<aop:around method="spec" 
+				pointcut="args(qq,ww,tt,aa)" />
+			
+		</aop:aspect>
+	</aop:config>
+</beans>

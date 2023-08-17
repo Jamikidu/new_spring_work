@@ -13,7 +13,7 @@ public class AroundFigures {
 		//Object res = null;
 
 		System.out.println(" >> culcCircle 진입: "+joinPoint.toString());
-		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
+		//System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
 		
 		
 		try {
@@ -34,10 +34,10 @@ public class AroundFigures {
 		System.out.println(" >> culcCircle 완료");
 	}
 	
-	void culcRectangle(ProceedingJoinPoint joinPoint) {
+	void culcRectangle(JoinPoint joinPoint) {
 		
 		System.out.println(" >> culcRectangle 진입: "+joinPoint.toString());
-		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
+		//System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
 		
 		
 		try {
@@ -58,10 +58,10 @@ public class AroundFigures {
 		System.out.println(" >> culcRectangle 완료");
 	}
 	
-	void culcRightTriangle(ProceedingJoinPoint joinPoint) {
+	void culcRightTriangle(JoinPoint joinPoint) {
 		
 		System.out.println(" >> culcRightTriangle 진입: "+joinPoint.toString());
-		System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
+		//System.out.println(" >> getArgs():"+Arrays.toString(joinPoint.getArgs()));
 		
 		
 		try {

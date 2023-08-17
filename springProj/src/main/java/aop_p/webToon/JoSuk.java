@@ -20,4 +20,9 @@ public class JoSuk {
 		System.out.println("조철왕:"+c);
 		return 4000;
 	}
+	
+	public int nums(int c) {
+		System.out.println("nums:"+c);
+		return 100/c; 
+	}
 }

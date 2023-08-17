@@ -1,0 +1,44 @@
+IDE - vs code
+html - tag(명령어), 구조
+css - 디자인
+javascript
+
+
+sql - 데이터베이스
+
+IDE - 이클립스
+JAVA
+
+IDE - 파이참
+PYTHON
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+html의 꽃
+페이지 연결(하이퍼링크)
+<a href="웹페이지주소">
+hyper reference
+사진
+<img src="이미지위치"> (alt)
+
+환경변수(path)
+설정 -> 시스템 -> 정보 -> 고급 시스템 설정 -> 환경변수
+
+메뉴를 만들어주는 태그
+<nav>
+
+동영상 만들어주는 태그
+<video> (controls, autoplay)
+
+CSS 스타일
+-외부 스타일 : css 파일로 작성(파일 포함)
+-내부 스타일: <style> 태그 이용
+-인라인 스타일: style 속성을 사용
+
+선택자(selector)
+1. 태그
+2. id 선택자 - #을 앞에 붙임
+3. class 선택자 - .(점)을 앞에 붙임
+4. 그룹 선택자 - ,(콤머)
+
+표 태그 <table>

@@ -1,0 +1,24 @@
+칼럼(열)의 속성 변경
+<colgroup>
+   <col>
+   <col>
+</colgroup>
+
+GIT - 명령어 툴
+GIT HURB - 저장 공간 및 툴
+
+DOS(도스)
+- 디렉터리(Directory)
+-cd : 디렉터리 위치 이동
+-cd c:/ 루트 디렉터리
+-cd c:\
+-dir : 디렉터리 내부 보기
+-cd.. : 상위 디렉터리
+
+배치(display-일괄성)
+display : block(수직)
+display : none(숨김)
+display : inline(수평)
+display : inline-block(수평인데 속성 간직함)
+
+배치(float-독립적)

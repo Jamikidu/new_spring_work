@@ -40,6 +40,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\green_project\new_jspwork\spring_work\springProj"/>
 			<item value="C:\html_works\new_spring_work"/>
 			<item value="C:\total_works\new_spring_work\springProj"/>
 			<item value="C:\html_works\new_spring_work\springProj"/>

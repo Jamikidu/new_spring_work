@@ -1,0 +1,47 @@
+이번주에 이력서 알파버전을 완성시키기
+
+프로젝트 양식
+1.프로젝트명,팀명,팀원
+2.기획
+1)배경,동기 중점개발내용
+2)마인드 맵
+3)요구사항
+3.개발
+1)개발정보(개발툴,개발기간)
+2)역할분담
+3)시간계획서(타임스케줄)
+4.다이어그램
+1)usecase or sitemap 2)database 3)class
+5.시연화면(메뉴얼)
+
+//프로젝트가 3주라는 가정하에 1주안에 모든기능이 정상작동하게끔 알파버전을 완성시키자//
+
+%
+MVC 순서
+url - 웹서버(tomcat) - jsp프로젝트진입 - 컨트롤러로 진입(url뒤에글자에따라서비스) - 서비스 - db - 서비스
+- 컨트롤러 - template(로 forwarding) - 필요한 페이지 include
+%
+
+abstract static final 독학할것!!
+
+과제:mvc 오늘까지 한거 만들어봐라, 외워라
+
+% MVC 디테일하게 새로 해보기
+1. index.jsp 만들기
+2. servlet 생성(doget,dopost) - request.getRequestURI(),request.getContextPath() 확인
+ ㄱ)request.getRequestURI() => 주소전체값 / request.getContextPath() => 프로젝트명
+3. 보내줘야할 .jsp앞에 주소명 확인 - String serviceStr = request.getRequestURI().substring(
+				(request.getContextPath()+"/board/").length()); ::BList
+4. BoardService 클래스 인스턴스 생성 - BoardService service = (BoardService)Class.forName("ser_p."+serviceStr).newInstance();
+				service.execute(request,response);
+ ㄱ)Class.forName()이란 "ser_p."+serviceStr 에 해당하는 클래스가 존재한다면 라는 뜻 
+	따라서 해당 이름의 클래스가 존재하지 않을수도 있으므로 try~catch가 필수
+5. BList 클래스가 execute하기 위해서 serviceStr 값을 request.setAttribute() 로 보내줘야함
+6. RequestDispatcher dispatcher = request.getRequestDispatcher("/views/template.jsp");
+	dispatcher을 통해서 template.jsp로 forward로 이동시킴
+7. 직접이동하는게 아니고 template에서 jsp들의 페이지정보를 받아와서 include로 화면만 보여줌
+8. 이제 db 왔다갔다해야함
+
+
+
+%

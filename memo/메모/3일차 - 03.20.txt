@@ -1,0 +1,11 @@
+table 태그양식
+<table>
+<thead>
+  <tr>
+	<td></td>
+  <tr>
+</thead>
+<tbody>
+  <tr>
+	<td></td>
+  <tr>

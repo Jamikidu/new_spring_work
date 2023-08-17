@@ -1,0 +1,37 @@
+하나의 키(버튼)가 2가지 기능 -Toggle(토글)
+button onclick=showHide()
+function showHide(){
+    let sw = 0 //상태변수
+    if(조건식){
+	숨기기
+	sw = 1
+    }else{
+	보이기
+	sw = 0
+    }
+}
+
+
+let var 차이
+호이스트(hoist)
+
+배열의 복사
+let odd = [1, 3, 5, 7, 9]
+//let arr = [ ] // 빈 배열
+let arr = new Array(5)
+arr = odd
+
+사용자 함수
+function 함수이름(ex.showHide)( ){ }
+사용자 객체 - 첫글자 대문자
+생성자함수(클래스)
+function 객체이름(ex.ShowHide)( ){ }
+
+let book = ["자바책", "웹 교재", "파이썬 책"]
+
+객체 1개 - json (xml -> json)
+let book = {
+    "title": '반응형 웹', "writer": "김윤아"}
+
+객체 여러개(클래스)
+

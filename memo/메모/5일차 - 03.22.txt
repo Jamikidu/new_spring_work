@@ -1,0 +1,29 @@
+search.html
+로그인폼
+입력상자
+<form>
+   <input type="text">
+</form>
+쿼리스트링 형태
+서버.jsp?id="강남역"
+
+로그인폼
+아이디:<input type="text"
+비밀번호:<input type="password"
+로그인 - 전송버튼<input type="submit">
+
+라디오버튼
+<input type="radio">
+<input type="checkbox">
+
+<fieldset>
+   <legend> 소제목 </legend>
+</fieldset>
+한줄 입력<input type="text">
+여러줄 입력
+<textarea rows=3 cols=60></textarea>
+파일첨부(업로드)
+<input type="file">
+
+<button> 태그
+onclick="" 자바 스크립트와 연동
