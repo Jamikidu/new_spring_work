@@ -19,6 +19,7 @@ public class exam_main3 {
 			System.out.println("str의 길이:"+ str1.length());
 		}
 		*/
+		/*
 		String str2 = sc.nextLine();
 		char maxchar = str2.charAt(0);
 		
@@ -28,7 +29,19 @@ public class exam_main3 {
 			if((int)maxchar<(int)str2.charAt(i)) {
 				maxchar = str2.charAt(i);
 			}
+			System.out.print((int)str2.charAt(i)+",");
 		}
-		System.out.println("제일 큰 글자: "+maxchar);
+		System.out.println("\n제일 큰 글자: "+maxchar);
+		*/
+		String eng1 = sc.nextLine();
+
+		char[] ceng2 = eng1.toCharArray();
+		char[] ceng3 = new char[ceng2.length];
+		System.out.println(ceng2);
+		for(int i=0;i<ceng2.length;i++) {
+			
+			ceng3[i] = ceng2[ceng2.length-i];
+		}
+		
 	}
 }

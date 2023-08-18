@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>attr</title>
+</head>
+<body>
+<h1>request/attr</h1>
+age:[[${age}]]<br/>
+pname:[[${pname}]]<br/>
+jum:[[${jum}]]<br/>
+<hr/>
+<th:block th:each="j:${jum}">
+	[[${j}]]<br/>
+</th:block>
+<hr/>
+now:[[${now}]]<br/>
+per:[[${per}]]<br/>
+per:[[${per.pname}]], gender:[[${per.gender}]] ,mil:[[${per.mil}]]
+</body>
+</html>

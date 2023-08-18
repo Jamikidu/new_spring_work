@@ -25,8 +25,8 @@ public class NewOrderMain {
 		nod.order("돼지고기덮밥단품", "덮밥", 7200);
 		nod.order("돼지고기덮밥세트", "덮밥", 10500);
 		System.out.println("-----------------------------------------");
-		ord.show찌개();
-		ord.show덮밥();
+//		ord.show찌개();
+//		ord.show덮밥();
 	}
 
 }
