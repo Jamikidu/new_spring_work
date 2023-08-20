@@ -12,9 +12,8 @@ public class OrderData {
 	int realtot;
 	
 	
-	
 	public int calcRealtot() {
-		
+		realtot = 0;
 		for (OrderProduct a : arr) {
 			realtot += a.total;
 		}
