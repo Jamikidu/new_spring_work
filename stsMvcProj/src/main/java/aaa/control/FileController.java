@@ -91,14 +91,31 @@ public class FileController {
 		String path = "C:\\green_project\\new_jspwork\\new_spring_work\\stsMvcProj\\src\\main\\webapp\\views\\file\\up";
 		
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
+		
+		String fileName = ff.getName(); //올릴 파일의 이름
+		String extension = fileName.substring(fileName.lastIndexOf(".")+1); //파일 확장자
+		String shortFn = fileName.substring(0, fileName.lastIndexOf(".")); //확장자를 제외한 파일이름
+		System.out.println("shortFn: "+shortFn);
+		System.out.println("extension: "+extension);
+		
+		int p = 1;
+		
 		System.out.println("ff.getName(): "+ff.getName());
-		if(ff.exists()) {
+		System.out.println("mf.getOriginalFilename():"+mf.getOriginalFilename());
+		System.out.println("path\"+shortFn+p+extension : "+path+"\\"+shortFn+p+"."+extension);
+		
+		if(ff.exists()) { //올릴파일이 현재 파일과 이름이 같다면
 			System.out.println("파일이 이미 존재합니다.");
-			if(ff.getName().equals(mf.getOriginalFilename())) {
+			int newName = Integer.parseInt(shortFn)+1;
+			String strnewName = Integer.toString(newName);
+			System.out.println(strnewName+"."+extension);
+			ff = new File(strnewName+"."+extension);
+			if(ff.getName().equals(mf.getOriginalFilename())) { 
+
 				
 			}
 		}else {
-			System.out.println("파일이 존재하지 않습니다. 업로드합니다.");
+			System.out.println("업로드합니다.");
 		}
 		
 		try {
