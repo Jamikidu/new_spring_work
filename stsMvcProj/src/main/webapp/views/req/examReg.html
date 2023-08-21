@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>examReg</title>
+</head>
+<body>
+<h1>examReg</h1>
+<table border="">
+	<tr>
+		<td>이름</td>
+		<td>국어</td>
+		<td>영어</td>
+		<td>수학</td>
+		<td>총점</td>
+		<td>평균</td>
+		<td>등수</td>
+	</tr>	
+	<tr th:each="st : ${exam.ts}">
+		<td th:text="${st.name}"></td>
+		<td th:text="${st.jum[0]}"></td>
+		<td th:text="${st.jum[1]}"></td>
+		<td th:text="${st.jum[2]}"></td>
+		<td th:text="${st.tot}"></td>
+		<td th:text="${st.avg}"></td>
+		<td th:text="${st.rank}"></td>
+	</tr>
+</table>
+</body>
+</html>

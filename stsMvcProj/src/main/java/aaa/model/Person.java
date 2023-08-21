@@ -15,7 +15,17 @@ public class Person {
 		this.gender = gender;
 		this.mil = mil;
 	}
-	String pname, gender;
-	boolean mil;
+	
+	public Person(String pname, String gender, String age, boolean mil, boolean mar) {
+		super();
+		this.pname = pname;
+		this.gender = gender;
+		this.age = age;
+		this.mil = mil;
+		this.mar = mar;
+	}
+
+	String pname, gender, age, id;
+	boolean mil, mar;
 	
 }
