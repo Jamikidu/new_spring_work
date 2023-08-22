@@ -21,44 +21,83 @@ import jakarta.servlet.http.HttpServletResponse;
 @RequestMapping("cust")
 public class CustController {
 	
-	@GetMapping("login")
-	String login() {
+	@RequestMapping("loginMain")
+	String loginMain(Model mm,
+			@CookieValue(value="id", defaultValue = "없음" )String id,
+			@CookieValue(value="pname", defaultValue = "없음" )String pname) {
 		
-		return "cust/login";
+		mm.addAttribute("id", id);
+		mm.addAttribute("id", pname);
+		return "cust/loginMain";
 	}
 	
-	@PostMapping("login")
+	@RequestMapping("loginReg")
 	String loginReg(HttpServletResponse response,
 			@RequestParam("id")String id,
 			@RequestParam("pw")String pw,
-			Model mm
-			) {
-		ArrayList<Cust> al1 = new ArrayList<>();
-		Cust cust1 = new Cust("aaa", "1111", "홍길동");
-		Cust cust2 = new Cust("bbb", "2222", "청길동");
-		Cust cust3 = new Cust("ccc", "3333", "백길동");
-		Cust cust4 = new Cust("ddd", "4444", "주길동");
-		
-		al1.add(cust1);
-		al1.add(cust2);
-		al1.add(cust3);
-		al1.add(cust4);
+			Model mm) {
+		ArrayList<Cust> al2 = new ArrayList<>();
+		Cust cus1 = new Cust("aaa", "1111", "홍길동");
+		Cust cus2 = new Cust("bbb", "2222", "청길동");
+		Cust cus3 = new Cust("ccc", "3333", "백길동");
+		Cust cus4 = new Cust("ddd", "4444", "주길동");
+		al2.add(cus1);
+		al2.add(cus2);
+		al2.add(cus3);
+		al2.add(cus4);
 		System.out.println("id: "+id+", pw: "+pw);
 		
-		for (Cust cu : al1) {
+		String msg = "로그인 실패";
+		for (Cust cu : al2) {
 			if(id.equals(cu.getId()) && pw.equals(cu.getPw())) {
+				System.out.println("cu.getPname(): " + cu.getPname());
+				msg = cu.getPname()+" 님 로그인 성공";
 				response.addCookie(new Cookie("id",cu.getId()));
 				response.addCookie(new Cookie("pname",cu.getPname()));
 				mm.addAttribute("id",cu.getId());
 				//mm.addAttribute("pw",cu.getPw());
-				mm.addAttribute("pname",cu.getPname());	
+				mm.addAttribute("pname",cu.getPname());
+				mm.addAttribute("msg",msg);
 				
-				return "cust/loginView";
+				return "cust/loginAlert";
 			}
 		}
-
-		return "cust/login";
+		mm.addAttribute(msg);
+		return "cust/loginAlert";
 	}
+	
+//	@PostMapping("login")
+//	String loginReg(HttpServletResponse response,
+//			@RequestParam("id")String id,
+//			@RequestParam("pw")String pw,
+//			Model mm
+//			) {
+//		ArrayList<Cust> al1 = new ArrayList<>();
+//		Cust cust1 = new Cust("aaa", "1111", "홍길동");
+//		Cust cust2 = new Cust("bbb", "2222", "청길동");
+//		Cust cust3 = new Cust("ccc", "3333", "백길동");
+//		Cust cust4 = new Cust("ddd", "4444", "주길동");
+//		
+//		al1.add(cust1);
+//		al1.add(cust2);
+//		al1.add(cust3);
+//		al1.add(cust4);
+//		System.out.println("id: "+id+", pw: "+pw);
+//		
+//		for (Cust cu : al1) {
+//			if(id.equals(cu.getId()) && pw.equals(cu.getPw())) {
+//				response.addCookie(new Cookie("id",cu.getId()));
+//				response.addCookie(new Cookie("pname",cu.getPname()));
+//				mm.addAttribute("id",cu.getId());
+//				//mm.addAttribute("pw",cu.getPw());
+//				mm.addAttribute("pname",cu.getPname());	
+//				
+//				return "cust/loginView";
+//			}
+//		}
+//
+//		return "cust/login";
+//	}
 	
 	
 	@RequestMapping("delete")

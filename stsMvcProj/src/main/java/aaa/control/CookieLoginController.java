@@ -16,8 +16,18 @@ import jakarta.servlet.http.HttpServletResponse;
 @RequestMapping("cookie")
 public class CookieLoginController {
 
+	@RequestMapping("loginMain")	//cookie/loginMain url로 이동
+	ModelAndView view(
+			@CookieValue(value="pid", defaultValue = "없음" )String pid,  //쿠키 전달 받을 이름 pid로 지칭, 없으면 "없음"표시
+			@CookieValue(value="pname", defaultValue = "없음" )String pname) {  //쿠키 전달 받을 이름 pname로 지칭, 없으면 "없음"표시
+		
+		ModelAndView mav = new ModelAndView("cookie/loginMain"); //이동 할 페이지 지정
+		mav.addObject("pid",pid);  //model에 "pid"라는 String pid값 추가
+		mav.addObject("pname",pname);  //model에 "pname"라는 String pname값 추가
+		return mav;
+	}
 	
-	@RequestMapping("loginReg")
+	@RequestMapping("loginReg")		//cookie/loginReg url로 이동
 	ModelAndView  make1(
 			String pid, String pw,
 			HttpServletResponse response) {
@@ -60,14 +70,5 @@ public class CookieLoginController {
 	}
 	
 	
-	@RequestMapping("loginMain")
-	ModelAndView view(
-			@CookieValue(value="pid", defaultValue = "없음" )String pid,
-			@CookieValue(value="pname", defaultValue = "없음" )String pname) {
-		
-		ModelAndView mav = new ModelAndView("cookie/loginMain");
-		mav.addObject("pid",pid);
-		mav.addObject("pname",pname);
-		return mav;
-	}
+	
 }
