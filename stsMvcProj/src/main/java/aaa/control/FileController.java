@@ -93,7 +93,7 @@ public class FileController {
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
 		
 		String fileName = ff.getName(); //올릴 파일의 이름
-		String extension = fileName.substring(fileName.lastIndexOf(".")+1); //파일 확장자
+		String extension = fileName.substring(fileName.lastIndexOf(".")+1); //파일 확장자 (jpg,png...)
 		String shortFn = fileName.substring(0, fileName.lastIndexOf(".")); //확장자를 제외한 파일이름
 		System.out.println("shortFn: "+shortFn);
 		System.out.println("extension: "+extension);
@@ -105,11 +105,11 @@ public class FileController {
 		System.out.println("path\"+shortFn+p+extension : "+path+"\\"+shortFn+p+"."+extension);
 		
 		if(ff.exists()) { //올릴파일이 현재 파일과 이름이 같다면
-			System.out.println("파일이 이미 존재합니다.");
-			int newName = Integer.parseInt(shortFn)+1;
-			String strnewName = Integer.toString(newName);
+			System.out.println("파일이 이미 존재합니다.");		// 이론은 확장자를 제외한 파일이름끝에 1을 추가해서 저장하고 싶었지만
+			int newName = Integer.parseInt(shortFn)+p;  	// 파일 끝자리에 1씩 추가하고 싶었는데 오류가...
+			String strnewName = Integer.toString(newName);  // 숫자 1 추가하고 다시 문자변환
 			System.out.println(strnewName+"."+extension);
-			ff = new File(strnewName+"."+extension);
+			ff = new File(strnewName+"."+extension);		// 재결합
 			if(ff.getName().equals(mf.getOriginalFilename())) { 
 
 				

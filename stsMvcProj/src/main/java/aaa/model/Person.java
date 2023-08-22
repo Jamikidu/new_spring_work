@@ -16,6 +16,7 @@ public class Person {
 		this.mil = mil;
 	}
 	
+	
 	public Person(String pname, String gender, String age, boolean mil, boolean mar) {
 		super();
 		this.pname = pname;
@@ -25,7 +26,14 @@ public class Person {
 		this.mar = mar;
 	}
 
-	String pname, gender, age, id;
+	public Person(String id, String pname, String pw) {
+		super();
+		this.id = id;
+		this.pname = pname;
+		this.pw = pw;
+	}
+
+	String pname, gender, age, id, pw;
 	boolean mil, mar;
 	
 }

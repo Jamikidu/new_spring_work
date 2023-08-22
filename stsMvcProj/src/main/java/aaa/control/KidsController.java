@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import aaa.kids.Group;
-import aaa.kids.Kids;
+import aaa.mymodel.Group;
+import aaa.mymodel.Kids;
 
 
 @Controller

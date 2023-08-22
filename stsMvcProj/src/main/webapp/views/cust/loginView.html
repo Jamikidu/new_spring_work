@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>로그인 후 - 쿠키보기</title>
+</head>
+<body>
+<h1>로그인 후 - 쿠키보기</h1>
+<h2>안녕안녕 나는 loginView야~</h2>
+
+<th:block th:if="${id != null}">
+	id : [[${id}]] ..!
+</th:block>
+<th:block th:if="${id == null}">
+	id 없어요
+</th:block>
+<br/>
+
+<th:block th:if="${pname != null}">
+	pname : [[${pname}]] ..!!
+</th:block>
+<th:block th:if="${pname == null}">
+	pname 없어요
+</th:block>
+<br/>
+
+
+id: [[${id}]]<br/>
+pname: [[${pname}]]<br/>
+<a href="delete">[로그아웃]</a>
+</body>
+</html>
