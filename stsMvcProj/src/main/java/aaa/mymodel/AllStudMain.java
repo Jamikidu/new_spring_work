@@ -1,4 +1,4 @@
-package aaa.model;
+package aaa.mymodel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,11 +10,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class AllStudMain {
 
-	HashMap<String, ArrayList<Studs>>data;
+	HashMap<String, ArrayList<Studs>> data;	//키가 반이름이고 값은 학생객체인 해쉬맵 선언
 	
-	public AllStudMain() {
+	public AllStudMain() {	// 기본생성자 말고 테이블 밑에서 값 파라미터 받아서 data.put 새로 해줄수 있게 하면
+							// 반에 학생 추가가 가능하지 않을까??
 		data = new HashMap<>();
 		
+		//1,2반: 먼저 출력 확인용으로 고정데이터 값이 들어있는 반 2개 생성
 		ArrayList<Studs> c1Students = new ArrayList<>();
 		c1Students.add(new Studs("일민수", 10, 20, 30));
 		c1Students.add(new Studs("이민수", 11, 21, 34));
@@ -31,6 +33,7 @@ public class AllStudMain {
 		c2Students.add(new Studs("오소미", 25, 36, 48));
 		data.put("2반", c2Students);
 		
+		//3반: 5명의 학생, 랜덤한 성적, 랜덤값 다르게 하기위해 for문으로 생성
 		ArrayList<Studs> c3Students = new ArrayList<>();
 		for(int i=1;i<=5;i++) {
 			int ran1 = (int)(Math.random()*50)+1;
@@ -40,8 +43,10 @@ public class AllStudMain {
 		}
 		data.put("3반", c3Students);
 		
+		//4반: 학생수도 랜덤(6~10명)
+		int ranS = (int)(Math.random()*5)+6;
 		ArrayList<Studs> c4Students = new ArrayList<>();
-		for(int i=1;i<=5;i++) {
+		for(int i=1;i<=ranS;i++) {
 			int ran1 = (int)(Math.random()*50)+1;
 			int ran2 = (int)(Math.random()*50)+1;
 			int ran3 = (int)(Math.random()*50)+1;
@@ -51,7 +56,8 @@ public class AllStudMain {
 		
 	}
 	
-	public ArrayList<Studs> getStudents(String title) {
-		return data.get(title);
+
+	public ArrayList<Studs> getStudents(String clasName) {
+		return data.get(clasName);
 	}
 }

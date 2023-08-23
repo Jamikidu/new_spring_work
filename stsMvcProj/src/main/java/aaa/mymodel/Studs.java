@@ -1,4 +1,4 @@
-package aaa.model;
+package aaa.mymodel;
 
 import java.util.ArrayList;
 

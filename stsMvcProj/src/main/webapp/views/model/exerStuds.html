@@ -11,10 +11,10 @@
 <h1>model/studs</h1>
 <table border="">
 	<tr>
-		<td colspan="6" align="center">학생게시판</td>
+		<td colspan="7" align="center">학생게시판</td>
 	</tr>
 	<tr width="1000px">
-		<td colspan="6">
+		<td colspan="7">
 			<table width="100%">
 				<tr align="center">
 					<td  th:each="md : ${hClas}">
@@ -25,6 +25,7 @@
 		</td>
 	</tr>
 	<tr>
+		<td>반이름</td>
 		<td width="120px">학생이름</td>
 		<td>국어</td>
 		<td>영어</td>
@@ -32,8 +33,9 @@
 		<td>평균</td>
 		<td>총점</td>
 	</tr>
-	<tr>
+	<tr> <!-- n열 1행을 학생 수 만큼 합쳐서 반이름을 넣고 싶었습니다.. -->
 	<tr th:each="mc : ${mainCt}">
+		<td></td>
 		<td th:text="${mc.sname}"></td>
 		<td th:text="${mc.jum[0]}"></td>
 		<td th:text="${mc.jum[1]}"></td>
@@ -43,7 +45,7 @@
 
 	</tr>
 	<tr width="1000px">
-		<td colspan="6">[[${fTxt}]]</td>
+		<td colspan="7" align="center">[[${fTxt}]]</td>
 	</tr>
 </table>
 
