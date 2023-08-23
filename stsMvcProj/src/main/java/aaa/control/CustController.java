@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import aaa.mymodel.Cust;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
@@ -27,13 +28,13 @@ public class CustController {
 			@CookieValue(value="pname", defaultValue = "없음" )String pname) {
 		
 		mm.addAttribute("id", id);
-		mm.addAttribute("id", pname);
+		mm.addAttribute("pname", pname);
 		return "cust/loginMain";
 	}
 	
 	@RequestMapping("loginReg")
 	String loginReg(HttpServletResponse response,
-			@RequestParam("id")String id,
+			@RequestParam("id")String id, //param을 안써도 작동함 왜 그런건지...
 			@RequestParam("pw")String pw,
 			Model mm) {
 		ArrayList<Cust> al2 = new ArrayList<>();
@@ -48,6 +49,7 @@ public class CustController {
 		System.out.println("id: "+id+", pw: "+pw);
 		
 		String msg = "로그인 실패";
+		
 		for (Cust cu : al2) {
 			if(id.equals(cu.getId()) && pw.equals(cu.getPw())) {
 				System.out.println("cu.getPname(): " + cu.getPname());
@@ -55,16 +57,18 @@ public class CustController {
 				response.addCookie(new Cookie("id",cu.getId()));
 				response.addCookie(new Cookie("pname",cu.getPname()));
 				mm.addAttribute("id",cu.getId());
-				//mm.addAttribute("pw",cu.getPw());
 				mm.addAttribute("pname",cu.getPname());
 				mm.addAttribute("msg",msg);
-				
+				System.out.println("id:"+cu.getId());
+				System.out.println("pname:"+cu.getPname());
+				System.out.println("msg:"+msg);
 				return "cust/loginAlert";
 			}
 		}
-		mm.addAttribute(msg);
+		mm.addAttribute("msg",msg);
 		return "cust/loginAlert";
 	}
+	
 	
 //	@PostMapping("login")
 //	String loginReg(HttpServletResponse response,
@@ -101,7 +105,8 @@ public class CustController {
 	
 	
 	@RequestMapping("delete")
-	String deletecoo(HttpServletResponse response) {
+	String deletecoo(HttpServletResponse response,HttpServletRequest request,
+			@CookieValue(value="pname" )String pname) {
 		System.out.println("deletecoo() 진입");
 		
 		Cookie coo = new Cookie("id","");
@@ -113,7 +118,8 @@ public class CustController {
 		response.addCookie(coo);
 		System.out.println(coo.getValue());
 		System.out.println("쿠키를 삭제합니다.");
-		return "redirect:login";
+		request.setAttribute("msg", pname+"로그아웃 되었습니다");
+		return "redirect:loginAlert";
 	}
 	
 	

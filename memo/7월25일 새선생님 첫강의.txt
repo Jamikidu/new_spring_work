@@ -16,21 +16,21 @@ Instance 생성(서블릿 객체 생성) - init() - service():doGet(),doPost() �
 
 was => JSP => '웹서버'와 '데이터베이스(DB)' 사이에 중간단계이자 매개체
 JSP 는 크게 3가지로 나눠어진다
-1.스크립트 태그 - 디렉티브(지시어) 엘리먼트, 스크립팅 원소{(선언(Declartion), 스크립트릿(scriptlet), 표현식(Expression)} / 
+1.스크립트 태그 - 디렉티브(지시어) 엘리먼트, 스크립팅 원소[3가지:선언(Declartion){<%! %>}, 스크립트릿(scriptlet){<% %>}, 표현식(Expression){<%= %>}]
 2.액션 태그
 3.EL
 
 #내장객체(내장변수) 9개#
--page / this. JSP가 서블릿으로 변환 되었을때 그 Servlet 객체자신
--request / HttpServletRequest
--response / HttpServletResponse
--session / HttpSession  // 서버내에 계속 돌아다님
--application / ServletContext  //서버가 떳다가 죽을때까지 존재
+- page / this. JSP가 서블릿으로 변환 되었을때 그 Servlet 객체자신
+- request / HttpServletRequest
+- response / HttpServletResponse
+- session / HttpSession  // 서버내에 계속 돌아다님
+- application / ServletContext  //서버가 떳다가 죽을때까지 존재
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
--out / JspWriter - Servlet에서 PrintWriter와 같은 역할
--config / ServletConfig
--pageContext / Servelet에는 없는 것으로 다른 내장객체들을 생성할 수 있다.
--exception / Throwable.JSP가 page 지시자 태그의 isErrorPage=true 일 경우만 생성됨
+- out / JspWriter - Servlet에서 PrintWriter와 같은 역할
+- config / ServletConfig
+- pageContext / Servelet에는 없는 것으로 다른 내장객체들을 생성할 수 있다.
+- exception / Throwable.JSP가 page 지시자 태그의 isErrorPage=true 일 경우만 생성됨
 
 java는 왜 8, 11버전을 많이 쓸까? --> java lts ( LTS 란 Long Term Support 의 약자이며 출시 후 8년 이라는 긴 기간동안 보안 업데이트와 버그 수정을 지원할 것임을 선언한 버전)
 

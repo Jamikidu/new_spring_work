@@ -10,8 +10,12 @@
 	<h1>쿠키 - 로그인메인</h1>
 	<div th:if="${id!='없음'}">
 		
-		[[${pname}]]님 안녕하세요!
-		<a href="logout">[로그아웃]</a>
+		[[${pname}]]님 안녕하세요! <br/>
+		id : [[${id}]] <br/>
+		pname : [[${pname}]] <br/>
+		pw : [[${pw}]] <br/>
+		msg : [[${msg}]] <br/>
+		<a href="delete">[로그아웃]</a>
 		
 	</div>
 	<div th:unless="${id!='없음'}">

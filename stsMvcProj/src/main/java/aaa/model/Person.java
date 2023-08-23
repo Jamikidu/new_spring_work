@@ -32,8 +32,14 @@ public class Person {
 		this.pname = pname;
 		this.pw = pw;
 	}
+	
+	public boolean idPwChk(Person other) {
+	
+		
+		return id.equals(other.id) && pw.equals(other.pw);
+	}
 
-	String pname, gender, age, id, pw;
+	String pname, gender, age, id, pw, msg;
 	boolean mil, mar;
 	
 }
