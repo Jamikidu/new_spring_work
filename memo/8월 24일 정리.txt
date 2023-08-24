@@ -1,0 +1,18 @@
+@PathVariable 배움!  // 매우 중요함
+-- 어노테이션을 이용해서 {템플릿 변수}와 동일한 이름을 갖는 파라미터를 추가한다.
+
+Thymeleaf에서 include 기능을 사용 가능함!
+xmlns:layout="..."
+layout:decorate="..."
+
+			  mapping			  forwarding			layout		replace(include)
+url:localhost/basic/layout -----> HomeController.layout()  --------> basic/lalala.html -------> total/temp.html
+													ㄴparts/hhheee.html
+													ㄴparts/body.html
+													ㄴparts/footer.html
+
+<layout:fragment>
+	사이에 값이 전달됨
+</layout:fragment>
+
++ Provider

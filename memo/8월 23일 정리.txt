@@ -1,0 +1,3 @@
+정리 못함 ㅠㅠ
+@ModelAttribute 공부했음!
+ModelSeasonController - model(mmm1,mmm2,template) 참조

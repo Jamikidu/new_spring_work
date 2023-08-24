@@ -13,7 +13,7 @@ import aaa.mymodel.AllStudMain;
 import jakarta.annotation.Resource;
 
 @Controller
-@RequestMapping("/model")
+@RequestMapping("model")
 public class ModelStudsController {
 	
 	

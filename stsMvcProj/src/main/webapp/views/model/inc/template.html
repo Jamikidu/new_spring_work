@@ -18,22 +18,23 @@
 		<td width="500px">
 			<table width="100%">
 				<tr align="center">
-					<td th:each="md : ${hNav}">
+					<!--<td th:each="md : ${hNav}">
 						<a th:href="|?sn=${md.url}|" th:text="${md.txt}"/>
-					</td>
+					</td>-->
+					<th block th:replace="model/inc/header1" />
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<!--<td>
 			<img th:each="mc : ${mainCt}" th:src="|/sn/${mc}|" alt="" />
-		</td>
+		</td>-->
+		<th block th:replace="model/inc/bbody1" />
 	</tr>
 	<tr>
-		<td align="center">
-			[[${fTxt}]]<br/>
-			[[${seas}]]
+		<td>
+			<th:block layout:fragment="fff" />
 		</td>
 	</tr>
 </table>

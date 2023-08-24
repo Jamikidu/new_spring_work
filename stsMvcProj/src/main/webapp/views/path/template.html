@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>path/season</title>
+<style>
+	tr>td>img{
+		width: 200px;
+		height: 150px;
+		margin: 20px;
+	}
+</style>
+</head>
+<body>
+<h1>path/season</h1>
+<table border="">
+	<tr>
+		<td width="500px">
+			<th block th:replace="path/header1" />
+		</td>
+	</tr>
+	<tr>
+			<th block th:replace="model/inc/bbody1" />
+	</tr>
+	<tr>
+		<td align="center">
+			<th block th:replace="path/footer1" />
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
