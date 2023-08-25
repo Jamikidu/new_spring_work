@@ -79,7 +79,7 @@ public class RedirectController {
 		//mav.setViewName("redirect:to");
 		mav.addObject("id", per.getId());
 		mav.addObject("age", per.getAge());
-		mav.addObject("marriage", per.isMar());
+		mav.addObject("marriage", per.isMarriage());
 		////---->
 		System.out.println("from6() 진입:"+per);
 		////<----

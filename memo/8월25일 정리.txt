@@ -1,0 +1,2 @@
+ form 태그
+th:object 를 사용하여 편하게!

@@ -1,6 +1,5 @@
 package aaa.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -15,17 +14,9 @@ public class Person {
 		this.gender = gender;
 		this.mil = mil;
 	}
-	
-	
-	public Person(String pname, String gender, String age, boolean mil, boolean mar) {
-		super();
-		this.pname = pname;
-		this.gender = gender;
-		this.age = age;
-		this.mil = mil;
-		this.mar = mar;
-	}
-
+	String pname, gender, id, pw, msg;
+	int age, no;
+	boolean mil, marriage;
 	public Person(String id, String pname, String pw) {
 		super();
 		this.id = id;
@@ -38,8 +29,6 @@ public class Person {
 		
 		return id.equals(other.id) && pw.equals(other.pw);
 	}
-
-	String pname, gender, age, id, pw, msg;
-	boolean mil, mar;
+	
 	
 }

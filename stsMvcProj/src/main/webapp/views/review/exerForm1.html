@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>방탈출후기</title>
+</head>
+<body>
+<h1>방탈출후기</h1>
+<form action="" method="post" th:object="${escapeData}">
+<table border="">
+	<tr>
+		<td>테마</td>
+		<td>
+			<select th:field="*{theme2}">
+				<option th:each="tm:*{themes}" th:value="${tm.key}" th:text="${tm.value}"/>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>플레이 인원수</td>
+		<td>
+			<lable th:each="hc : *{headcount}">
+				<input type="radio" name="headcount" th:value="${hc}"
+				 />
+				[[${hc}]]
+			</lable>
+		</td>
+	</tr>
+	<tr>
+		<td>작성자</td>
+		<td><input type="text" th:field="*{wname}" style="width: 98%"/></td>
+	</tr>
+	<tr>
+		<td>별점</td>
+		<td>
+			<select th:field="*{star2}">
+				<option th:each="sr:*{starRatings}" th:value="${sr.key}" th:text="${sr.value}" />
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>클리어 여부</td>
+		<td>
+			<input type="radio" name="clear" th:checked="*{clear}" />탈출!
+			<input type="radio" name="clear" th:checked="!*{clear}" />못탈출!
+		</td>
+	</tr>
+	<tr>
+		<td>제목</td>
+		<td><input type="text" th:field="*{title}" style="width: 98%" /></td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<td><textarea th:field="*{content}" cols="60" rows="10" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="submit" value="후기등록">
+		</td>
+	</tr>
+	
+</table>
+</form>
+</body>
+</html>
