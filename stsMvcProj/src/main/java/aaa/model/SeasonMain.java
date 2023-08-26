@@ -4,11 +4,15 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
 @Component
+@Data
 public class SeasonMain {
 
 	HashMap<String, String[]>data;
 	
+
 	public SeasonMain() {
 		data = new HashMap<>();
 		
@@ -21,4 +25,14 @@ public class SeasonMain {
 	public String [] getPicture(String title) {
 		return data.get(title);
 	}
+
+	public SeasonMain(String a, String...b) {
+		super();
+		
+		this.data = data;
+		data= new HashMap<>();
+		data.put(a,b);
+	}
+
+
 }

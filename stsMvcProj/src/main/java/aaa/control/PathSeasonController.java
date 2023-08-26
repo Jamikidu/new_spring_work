@@ -24,19 +24,8 @@ public class PathSeasonController {
 	@Resource
 	SeasonMain sm;
 	
-//	@ModelAttribute("hNav")
-//	Object headerNav() {
-//		ArrayList<MenuData> res = new ArrayList<>();
-//		res.add(new MenuData("spring", "봄"));
-//		res.add(new MenuData("summer", "여름"));
-//		res.add(new MenuData("autumn", "가을"));
-//		res.add(new MenuData("winter", "겨울"));
-//		return res;
-//	}
-	
 	@ModelAttribute("hNav")
-	Object headerNav(@PathVariable String seas,Model mm) {
-		mm.addAttribute("spring",provider.getContext().getBean(seas));
+	Object headerNav() {
 		ArrayList<MenuData> res = new ArrayList<>();
 		res.add(new MenuData("spring", "봄"));
 		res.add(new MenuData("summer", "여름"));
@@ -44,6 +33,7 @@ public class PathSeasonController {
 		res.add(new MenuData("winter", "겨울"));
 		return res;
 	}
+	
 	
 	@ModelAttribute("mainCt")
 	Object mainContent(@PathVariable String seas) {

@@ -32,6 +32,8 @@ public class MySessionLoginController {
 			HttpServletResponse response,
 			HttpSession session) {
 		
+		
+		
 		HashMap<String, Person>map = new HashMap<>();
 		map.put("aaa", new Person("aaa", "장동건" , "1111"));
 		map.put("bbb", new Person("bbb", "장서건", "222"));
@@ -56,6 +58,7 @@ public class MySessionLoginController {
 			String pid, String pw,
 			HttpServletResponse response, HttpServletRequest request,
 			HttpSession session) {
+		
 		System.out.println(pid);
 		System.out.println(pw);
 		HashMap<String, Person>map = new HashMap<>();

@@ -30,8 +30,6 @@ public class MyValidController {
 		}
 		
 		
-		
-		
 		//에러가 없으면
 		return "review/myValidReg";
 	}
