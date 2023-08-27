@@ -22,14 +22,14 @@ public class MyConfig {
 		return new Battery("사랑의밧데리", 300);
 	}
 	
-	@Bean
-	SeasonMain summer() {
-		//SeasonMain data = ;
-		//data.getData().put("summer","sua.png,sub.png".split(","));
-		
-		
-		return new SeasonMain("summer","sua.png","sub.png");
-		//return data;
-	}
+//	@Bean
+//	SeasonMain summer() {
+//		//SeasonMain data = ;
+//		//data.getData().put("summer","sua.png,sub.png".split(","));
+//		
+//		
+//		return new SeasonMain("summer","sua.png","sub.png");
+//		//return data;
+//	}
 	
 }
