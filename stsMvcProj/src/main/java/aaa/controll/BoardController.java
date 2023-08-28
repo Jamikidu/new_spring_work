@@ -74,25 +74,25 @@ public class BoardController {
 	}
 	*/
 	//파일입력시켜보기
-	@PostMapping("insert")
-	String insertReg(BoardDTO dto, PageData pd, MultipartFile mmff,UploadData ud,HttpServletRequest request) {
+	@PostMapping("insert")	//mmff값을 받아오고 파일이름 쓰기위해서 UploadData도 변수로 가져옴
+	String insertReg(BoardDTO dto, PageData pd, MultipartFile mmff,UploadData ud) {
 		
-		System.out.println("mmff.getName(): "+mmff.getName());
-		System.out.println("mmff.getOriginalFilename(): "+mmff.getOriginalFilename());
+		//System.out.println("mmff.getName(): "+mmff.getName());
+		//System.out.println("mmff.getOriginalFilename(): "+mmff.getOriginalFilename());
 		mapper.insseerr(dto);
 		pd.setMsg("작성되었습니다.");
 		pd.setGoUrl("list");
 		//System.out.println(dto);
 		
 //		fileSave(ud.getMmff());	//파일을 bup폴더에 저장시킴 ud.getMmff()==>mmff.getOriginalFilename(); 얘는 중복처리 아직 안됨 단순 업로드
-		fileSave2(ud, request);
+		fileSave2(ud, dto, mmff, pd);
 		
 		return "board/alert";
 	}
 	
 	//얘는 유효성 검사 없이 단순업로드 (파일명 중복되면 처리안됨)
 	void fileSave(MultipartFile mmff) {
-		String path = "C:\\green_project\\new_jspwork\\new_spring_work\\stsMvcProj\\src\\main\\webapp\\views\\board\\bup";
+		String path = "C:\\html_works\\new_spring_work\\stsMvcProj\\src\\main\\webapp\\views\\board\\bup";
 		
 		File ff = new File(path+"\\"+mmff.getOriginalFilename());
 		
@@ -108,47 +108,52 @@ public class BoardController {
 		}
 	}
 	
-	void fileSave2(UploadData ud, HttpServletRequest request) {
-		ud.setMsg(null);
+	void fileSave2(UploadData ud, BoardDTO dto, MultipartFile mmff,PageData pd) {
+		pd.setMsg(null);
 		
 		//파일 업로드 유무 확인
-		if(ud.getMmff().isEmpty()) {
+		if(dto.getMmff().isEmpty()) {
 			
-			ud.setMsg("파일이 비었어욥");
+			pd.setMsg("파일이 비었어욥");
 			return;
 		}
 		
-		String path = request.getServletContext().getRealPath("bup");
-		System.out.println("path:"+path);
-		path = "C:\\green_project\\new_jspwork\\new_spring_work\\stsMvcProj\\src\\main\\webapp\\views\\board\\bup";
+//		String path = request.getServletContext().getRealPath("bup");
+//		System.out.println("path:"+path);
+		String path = "C:\\html_works\\new_spring_work\\stsMvcProj\\src\\main\\webapp\\views\\board\\bup";
 		
 		
-		int dot = ud.getMmff().getOriginalFilename().lastIndexOf(".");
-		String fDomain = ud.getMmff().getOriginalFilename().substring(0, dot);
-		String ext = ud.getMmff().getOriginalFilename().substring(dot);
+		int dot = dto.getMmff().getOriginalFilename().lastIndexOf(".");
+		System.out.println("dot: "+dot);
+		String fDomain = dto.getMmff().getOriginalFilename().substring(0, dot);
+		System.out.println("fDomain: "+fDomain);
+		String ext = dto.getMmff().getOriginalFilename().substring(dot);
+		System.out.println("ext: "+ext);
 		
 		//이미지인지 확인
 		if(!Pattern.matches("[.](bmp|jpg|gif|png|jpeg)", ext.toLowerCase())) {
 		
-			ud.setMsg("이미지 파일이 아님");
+			pd.setMsg("이미지 파일이 아님");
 			return;
 		}
 		
-		ud.setMmffName(fDomain+ext); 
-		File ff = new File(path+"\\"+ud.getMmffName());
+		dto.setUpfile(fDomain+ext);
+		File mf = new File(path+"\\"+dto.getUpfile());
 		int cnt = 1;
-		while(ff.exists()) {
+		while(mf.exists()) {
 			 
-			ud.setMmffName(fDomain+"_"+cnt+ext);
-			System.out.println("ud.getMmffName():"+ud.getMmffName());
-			ff = new File(path+"\\"+ud.getMmffName());
+			dto.setUpfile(fDomain+"_"+cnt+ext);
+			
+			System.out.println("dto.getMmffName():"+dto.getUpfile());
+			mf = new File(path+"\\"+dto.getUpfile());
 			cnt++;
 		}
 		
 		try {
-			FileOutputStream fos = new FileOutputStream(ff);
+			FileOutputStream fos = new FileOutputStream(mf);
 			
-			fos.write(ud.getMmff().getBytes());
+			fos.write(dto.getMmff().getBytes());
+			
 			
 			fos.close();
 		} catch (Exception e) {
@@ -157,8 +162,6 @@ public class BoardController {
 		}
 		
 	}
-	
-	
 	
 	//게시판 글삭제
 	@GetMapping("delete/{id}")
