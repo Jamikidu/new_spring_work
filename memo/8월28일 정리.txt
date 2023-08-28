@@ -1,0 +1,8 @@
+spring 마이바티스 나가는날!!!
+
+ORM (Object Relational Mapping)
+sql 테이블과 클래스를 결합해주는 기능
+클래스의 멤버변수 이름과 테이블의 컬럼명이 같아야한다
+
+BoardMapper를 DAO라고 생각하면된다
+BoardMapper.xml 이 DTO라고 생각하면됨

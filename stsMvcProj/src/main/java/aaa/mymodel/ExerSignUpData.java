@@ -31,6 +31,7 @@ public class ExerSignUpData {
 	@NotEmpty(message = "성별은 필수로 골라주세요!")
 	String[] gender= {"남","여"};
 	String email;
+	String emailDomain;
 	
 	
     @Min(value = 8, message = "나이는 8살 이상!")

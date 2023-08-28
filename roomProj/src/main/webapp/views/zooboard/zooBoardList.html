@@ -23,8 +23,10 @@
                 <td><a th:href="@{/board/detail/{id}(id=${zbl.no})}" th:text="${zbl.title}"></a></td>
                 <td th:text="${#temporals.format(zbl.reg_Date, 'yyyy-MM-dd HH:mm')}"></td>
 				<td th:text="${zbl.myanimal}"></td>
-		 	 	<td><a th:href="@{/}"><button value="홈">홈으로</button></a></td>
             </tr>
+            <tr>
+				<td colspan="5"><a th:href="@{/}"><button value="홈">홈으로</button></a></td>
+			</tr>
         </tbody>
     </table>
 </body>

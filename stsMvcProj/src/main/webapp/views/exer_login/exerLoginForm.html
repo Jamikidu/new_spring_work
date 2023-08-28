@@ -74,7 +74,7 @@
 			<td>이메일</td>
 			<td><input type="text"  th:field="*{email}"/>
 			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
-			@ <select>
+			@ <select th:field="*{emailDomain}">
 				<option th:value="naver.com" th:text="naver.com"></option>
 				<option th:value="daum.net" th:text="daum.net"></option>
 				<option th:value="google.com" th:text="google.com"></option>

@@ -45,7 +45,7 @@
 		</tr>
 		<tr>
 			<td>이메일</td>
-			<td th:text="${exerSignUpData.email}" />
+			<td th:text="${exerSignUpData.email} + '@' + ${exerSignUpData.emailDomain}" />
 		</tr>
 		<tr>
 			<td colspan="2" align="right">

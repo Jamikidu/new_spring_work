@@ -32,7 +32,7 @@ public class ExerSignUpController {
 			return "exer_login/exerLoginForm";
 		}
 		if(!(sud.getSonnum()==7)) { //sonnum이 7이 아니라면
-			br.rejectValue("sonnum", null, "우리 흥의 등번호를 모른다면.. 저희는 함께 할 수 없습니다.");
+			br.rejectValue("sonnum", null, "우리흥의 등번호를 모른다면.. 저희는 함께 할 수 없습니다.");
 			return "exer_login/exerLoginForm";
 		}
 		

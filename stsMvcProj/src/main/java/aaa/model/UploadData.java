@@ -7,13 +7,16 @@ import lombok.Data;
 @Data
 public class UploadData {
 
-	String id, ff1Name, msg, ff2Name;
+	String id, ff1Name, msg, ff2Name, mmffName;
 	int age;
-	MultipartFile ff1, ff2;
+	MultipartFile ff1, ff2, mmff;
 	
 	public String getFf1Name() {
 		return ff1.getOriginalFilename();
 	}
 	
-
+	public String getMmffName() {
+		return mmff.getOriginalFilename();
+	}
+	
 }
