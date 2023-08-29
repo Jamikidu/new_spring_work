@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org/DTD Mapper3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.BoardMapper">
+	
+	<select id="list" resultType="bDTO" parameterType="bDTO">
+		select * from board order by gid desc, seq limit #{start}, #{limit}
+	</select>
+	
+	
+	<select id="listCnt" resultType="Integer">
+		select count(*) from board
+	</select>
+	
+	
+	<update id="addCount" parameterType="Integer">
+		update board set cnt = cnt + 1 where id = #{id}
+	</update>
+	
+	<select id="detail" resultType="bDTO" parameterType="Integer">
+		select * from board where id = #{id}
+	</select>
+	
+	<select id="maxId"  resultType="Integer">
+		select max(id) from board 
+	</select>
+	
+	<insert id="insseerr" parameterType="bDTO">
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
+	</insert>
+
+	<delete id="delettt" parameterType="bDTO">
+		delete from board where id = #{id} and pw = #{pw}
+	</delete>
+	
+	
+	<update id="modifffy" parameterType="bDTO">
+		update board set 
+		pname = #{pname}, content= #{content}, title= #{title}, upfile = #{upfile}
+		where id = #{id} and pw= #{pw}
+	</update>
+
+
+</mapper>

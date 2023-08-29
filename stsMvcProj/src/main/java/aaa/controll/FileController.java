@@ -76,7 +76,6 @@ public class FileController {
 	@RequestMapping(value="upload3")
 	String fileReg3(UploadData ud, HttpServletRequest request) {
 		
-
 		System.out.println("ud:"+ ud);
 		
 		System.out.println("OriginalFilename(): "+ud.getFf1().getOriginalFilename());

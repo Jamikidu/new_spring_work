@@ -10,19 +10,23 @@
 	<table border="">
 		<tr>
 			<td>번호</td>
-			<td>제목</td>
+			<td width="200px">제목</td>
 			<td>작성자</td>
 			<td>등록일</td>
 			<td>조회수</td>
 		</tr>
-		<tr th:each="dto, dtoStat : ${mainData}" th:limit="5">
-			<td th:text="${dtoStat.count}"/>
-			<td >
-				<a th:href="|detail/${dto.id}|" th:text="${dto.title}"></a>
-			</td>
-			<td th:text="${dto.pname}"/>
-			<td th:text="${dto.regDate}"/>
-			<td th:text="${dto.cnt}"/>
+		<tr th:each="dto, dtoStat : ${mainData}">	<!--each 뒤에 임시변수의 상태를 확인하려면 dto+Stat을 붙여서 사용-->
+		    <td th:text="${myPageData.start}+${dtoStat.count}" ></td>	<!-- 보여줄페이지의 시작넘버에 count를 더해줘서 올바른 넘버값출력 -->
+		 	
+		    <td align="left">
+		        <span th:if="${dto.lev}>0">
+					└
+				</span>
+		        <a th:href="|detail/${dto.id}|" th:text="${dto.title}"></a>
+		    </td>
+		    <td th:text="${dto.pname}"></td>
+		    <td th:text="${#dates.format(dto.regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+		    <td th:text="${dto.cnt}"></td>
 		</tr>
 		<tr>
 			<td colspan="5" align="right">
@@ -30,7 +34,22 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="5" align="center" th:text="${myPageData.page}"></td>
+			<td colspan="5" align="center">
+		        <span th:if="${myPageData.pageStart > 1}">
+		            <a th:href="'?page=' + ${myPageData.pageStart - 1}">[이전]</a>
+		        </span>
+		        <span th:each="p : ${#numbers.sequence(myPageData.pageStart, myPageData.pageEnd)}">
+		            <span th:if="${myPageData.page == p}">
+		                [<span th:text="${p}"></span>]
+		            </span>
+		            <span th:unless="${myPageData.page == p}">
+		                <a th:href="'?page=' + ${p}" th:text="${p}"></a>
+		            </span>
+		        </span>
+		        <span th:if="${myPageData.pageEnd < myPageData.pageTotal}">
+		            <a th:href="'?page=' + ${myPageData.pageEnd + 1}">[다음]</a>
+		        </span>
+        	</td>
 		</tr>
 	</table>
 </body>

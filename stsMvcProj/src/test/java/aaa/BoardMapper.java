@@ -5,14 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import aaa.model.BoardDTO;
-import aaa.model.MyPageData;
 
 @Mapper
 public interface BoardMapper {
-	
-	int countList(); //보드리스트의 게시글의 총갯수 구하기
-	
-	List<BoardDTO> list(MyPageData mpd);
+
+	List<BoardDTO> list(BoardDTO dto);
 	
 	BoardDTO detail(int id);
 	
@@ -22,9 +19,10 @@ public interface BoardMapper {
 	
 	int modifffy(BoardDTO dto);
 	
-	int cntuuup(BoardDTO dto);
+	int listCnt();
 	
 	int maxId();
-
+	
+	void addCount(int id);
 	
 }

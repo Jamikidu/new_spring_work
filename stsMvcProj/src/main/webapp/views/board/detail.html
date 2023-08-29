@@ -28,9 +28,16 @@
 			<td>조회수</td>
 			<td th:text="${dto.cnt}" />
 		</tr>
-		<tr>
+		<tr th:if="${not #strings.isEmpty(dto.upfile)}">	<!-- dto.upfile이 비어있지 않다면 하위 td들이 나타남 -->
 			<td>파일</td>
-			<td th:text="${dto.upfile}" />
+			<td>
+				<span th:if="${dto.isImg()}">
+					<img th:src="@{/views/board/bup/__${dto.upfile}__}" width="500px" />
+				</span>
+				<span th:unless="${dto.isImg()}">
+					<a th:href="@{/views/board/bup/FileDown(fname=${dto.upfile})}" th:text="${dto.upfile}"></a>
+				</span>
+			</td>
 		</tr>
 		<tr>
 			<td>내용</td>

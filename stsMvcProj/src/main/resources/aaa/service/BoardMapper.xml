@@ -5,15 +5,24 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 
 <mapper namespace="aaa.service.BoardMapper">
 	
-	<select id="list" resultType="bDTO">
-		select * from board
+	<select id="countList" resultType="Integer">
+		select count(*) from board
+	</select>
+	
+	<select id="maxId" resultType="Integer">
+		select max(id) from board
+	</select>
+	
+	<select id="list" resultType="bDTO" parameterType="mPD">
+		<!-- select * from board order by gid desc , seq limit ?, ? -->
+		select * from board order by gid desc , seq limit #{start}, #{limit}
 	</select>
 	
 	<select id="detail" resultType="bDTO" parameterType="Integer">
 		select * from board where id = #{id}
 	</select>
 	
-	<insert id="insseerr" parameterType="bDTO" >
+	<insert id="insseerr" parameterType="bDTO"  >
 		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev)
 		values
 		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0)
