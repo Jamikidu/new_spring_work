@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>request/orderReg</title>
+</head>
+<body>
+<h1>request/orderReg</h1>
+<table border=""
+		<tr>
+			<td>제품명</td>
+			<td>단가</td>
+			<td>수량</td>
+			<td>금액</td>
+		</tr>
+		<tr th:each="pd : ${orderData.arr}">
+			<td>[[${pd.pname}]]</td>
+			<td>[[${pd.price}]]</td>
+			<td>[[${pd.cnt}]]</td>
+			<td>[[${pd.total}]]</td>
+		</tr>
+		<tr>
+			<td colspan="4">합계 : [[${orderData.total}]]</td>
+			
+		</tr>
+		<tr>
+			<td rowspan="3">주소</td>
+			<td>우편번호</td>
+			<td colspan="2">[[${orderData.ad.zipcode}]]</td>
+		</tr>
+		<tr>
+			
+			<td>기본주소</td>
+			<td colspan="2">[[${orderData.ad.addr1}]]</td>
+		</tr>
+		<tr>
+			<td>상세주소</td>
+			<td colspan="2">[[${orderData.ad.addr2}]]</td>
+		</tr>
+		
+	</table>
+</body>
+</html>

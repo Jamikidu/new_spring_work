@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!--lalala 입니다 : 로 출력
+total 입니다 는 출력되지 않음
+-->
+<title>total 입니다</title>
+</head>
+<body>
+<h2>내가 total 이여</h2>
+<table border="">
+	<tr>
+		<td colspan="2">
+			<!-- include 기능-->
+			<th:block  th:replace="|thyme/inc/${headerUrl}|"/>
+			
+		</td>
+	</tr>
+	<tr>
+		<td width="200px">
+			<th:block  th:replace="thyme/inc/aside"/>
+		</td>
+		<td width="500px">
+			<th:block  th:replace="thyme/inc/bbbody"/>
+		</td>
+	</tr>
+	<tr>
+		<td  colspan="2">
+			<th:block layout:fragment="fff"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

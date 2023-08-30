@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>board/detail</title>
+</head>
+<body>
+<h1>board/detail</h1>
+
+	<table border="">
+		<tr>
+			<td>id</td><td th:text="${dto.id}"/>
+		</tr><tr>
+			<td>제목</td><td th:text="${dto.title}"/>
+		</tr><tr>
+			<td>작성자</td><td th:text="${dto.pname}"/>
+		</tr><tr>
+			<td>등록일</td><td th:text="${dto.regDate}"/>
+		</tr><tr>
+			<td>조회수</td><td th:text="${dto.cnt}"/>
+		</tr>
+		<tr th:if="${dto.upfile != null}">
+			
+			<td>파일</td>
+			<td >
+				<img th:if="${dto.img}" th:src="|/up/${dto.upfile}|"/>
+				<a th:unless="${dto.img}" th:text="${dto.upfile}"
+				   th:href="|/board/download/${dto.upfile}|" >
+			</td>
+		</tr>
+		<tr>
+			<td>내용</td><td th:text="${dto.content}"/>
+		</tr><tr>
+			<td colspan="2" align="right">
+				<a th:href="|/board/delete/${dto.page}/${dto.id}|">삭제</a>
+				<a th:href="|/board/modify/${dto.page}/${dto.id}|">수정</a>
+				<a th:href="|/board/list/${dto.page}|">목록으로</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.MybatisMapper">	<!-- Mapper.java의 이름을 가져오면됨 -->
+	
+	
+	<select id="list" resultType="bDTO">
+		select * from board order by gid desc , seq
+	</select>
+	
+	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>	<!-- where을 아예 태그로 묶어줌 -->
+			<if test="title!=null">
+				title like concat('%', #{title}, '%')
+			</if>			
+			<if test="pname!=null">
+				and pname like concat('%', #{pname}, '%')
+			</if>
+		</where>		
+	</select>
+	
+	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
+		select * from board 
+		<where>	<!-- where을 아예 태그로 묶어줌 -->
+			<if test="grade!=null">
+				<choose>
+					<when test="grade =='high'">
+						cnt > 10	
+					</when>
+					<when test="grade == 'middle'">
+						cnt > 5	and cnt &lt;= 10
+					</when>
+					<otherwise>
+						cnt &lt;= 5	
+					</otherwise>					
+				</choose>
+				
+			</if>			
+
+		</where>		
+	</select>	
+
+</mapper>

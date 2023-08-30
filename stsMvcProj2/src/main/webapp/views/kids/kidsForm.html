@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmls="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>kids/kidsForm</title>
+</head>
+<body>
+<h1>kids/kidsForm</h1>
+<form action="" method="post">
+	<table border="">
+		<tr>
+			<td>학생이름</td>
+			<td>학생반</td>
+			<td>국어점수</td>
+			<td>영어점수</td>
+			<td>수학점수</td>
+		</tr>
+
+		<tr th:each="no : ${#numbers.sequence(0,19)}">
+			<td><input type="text" th:name="|karr[${no}].kname|" th:value="${'학생'+(no+1)}"/></td>
+			<td><input type="text" th:name="|karr[${no}].ban|" th:value="${(T(java.lang.Math).random()*5+1).intValue()}"/></td>
+			<td><input type="text" th:name="|karr[${no}].kor|" th:value="${(T(java.lang.Math).random()*100+1).intValue()}" /></td>
+			<td><input type="text" th:name="|karr[${no}].eng|" th:value="${(T(java.lang.Math).random()*100+1).intValue()}"/></td>
+			<td><input type="text" th:name="|karr[${no}].mat|" th:value="${(T(java.lang.Math).random()*100+1).intValue()}"/></td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center">
+				<input type="submit" name="" value="해산!"/>
+			</td>
+		</tr>
+
+	</table>
+</form>
+</body>
+</html>

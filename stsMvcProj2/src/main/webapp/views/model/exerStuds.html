@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>model/studs</title>
+<style>
+
+</style>
+</head>
+<body>
+<h1>model/studs</h1>
+<table border="">
+	<tr>
+		<td colspan="7" align="center">학생게시판</td>
+	</tr>
+	<tr width="1000px">
+		<td colspan="7">
+			<table width="100%">
+				<tr align="center">
+					<td  th:each="md : ${hClas}">
+						<a th:href="|?cn=${md.url}|" th:text="${md.txt}"/>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>반이름</td>
+		<td width="120px">학생이름</td>
+		<td>국어</td>
+		<td>영어</td>
+		<td>수학</td>
+		<td>평균</td>
+		<td>총점</td>
+	</tr>
+	<tr> <!-- n열 1행을 학생 수 만큼 합쳐서 반이름을 넣고 싶었습니다.. -->
+	<tr th:each="mc : ${mainCt}">
+		<td></td>
+		<td th:text="${mc.sname}"></td>
+		<td th:text="${mc.jum[0]}"></td>
+		<td th:text="${mc.jum[1]}"></td>
+		<td th:text="${mc.jum[2]}"></td>
+		<td th:text="${mc.avg}"></td>
+		<td th:text="${mc.tot}"></td>
+
+	</tr>
+	<tr width="1000px">
+		<td colspan="7" align="center">[[${fTxt}]]</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>thymeleaf/control</title>
+</head>
+<body>
+<h1>thymeleaf/control</h1>
+<th:block th:with="a=30">
+a:[[${a}]]<br/>	
+<h2>if</h2>
+if="${a >= 20}"  : <th:block th:if="${a >= 20}" th:text="20이상" /><br/>
+if="${a lt 20}"  : <th:block th:if="${a lt 20}" th:text="20미만" /><br/>
+	
+<h2>unless</h2>
+unless="${a >= 20}"  : <th:block th:unless="${a >= 20}" th:text="'20이상 반대'" /><br/>
+unless="${a lt 20}"  : <th:block th:unless="${a lt 20}" th:text="'20미만 반대'" /><br/>
+
+
+<th:block th:if="${pid != null}" >
+	[[${pid}]]등장
+</th:block>
+<th:block th:if="${pid == null}" >
+	pid 없어요
+</th:block>
+
+<br/>
+
+<th:block th:if="${tid != null}" >
+	[[${tid}]]등장
+</th:block>
+<th:block th:if="${tid == null}" >
+	tid 없어요
+</th:block>
+
+<br/>
+
+<th:block th:if="${pname != null}" >
+	[[${pname}]]등장
+</th:block>
+<th:block th:unless="${pname != null}" >
+	pname 없어요
+</th:block>
+
+<br/>
+
+<th:block th:if="${tname != null}" >
+	[[${tname}]]등장
+</th:block>
+<th:block th:unless="${tname != null}" >
+	tname 없어요
+</th:block>
+
+
+<h2>switch</h2>
+<th:block th:switch="${a}">
+	<th:block th:case="10" th:text="'10이냐?'"/>
+	<th:block th:case="50" th:text="'50이냐?'"/>
+	<th:block th:case="30" th:text="'30이냐?_1'"/>
+	<th:block th:case="40" th:text="'40이냐?'"/>
+	<th:block th:case="30" th:text="'30이냐?_2'"/>
+</th:block>
+</th:block>
+
+<h2>each</h2>
+<th:block th:each="no , stat:${arr }">
+	<div th:text="|${stat.index}  ${stat} - ${no}|" />
+</th:block>
+</th:block>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>model/season</title>
+<style>
+	tr > td > img{
+		margin:20px;
+		width:200px;
+		height: 150px;
+	}
+	
+</style>
+</head>
+<body>
+<h1>model/season</h1>
+
+<table border="">
+	<tr>
+		<td width="500px">
+			<table width="100%">
+				<tr align="center">
+					<td th:each="md : ${hNav}">
+						<a th:href="|?sn=${md.url}|" th:text="${md.txt}"/>
+					</td>
+				</tr>
+			</table>
+			
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img th:each="mc:${mainCt}" th:src="|/sn/${mc}|" alt="" />
+			
+		</td>
+	</tr>
+	<tr>
+		<td>[[${fTxt}]]</td>
+	</tr>
+
+</table>
+</body>
+</html>

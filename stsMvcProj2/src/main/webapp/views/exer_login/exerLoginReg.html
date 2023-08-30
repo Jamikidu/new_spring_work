@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>과제 - 회원가입 Reg</title>
+<style>
+	*{margin: 0 auto;}
+	h1{text-align: center; margin: 30px 0;}
+	table {
+		border-radius: 10px;
+        border-collapse: collapse; /* 테이블 셀 경계를 병합하도록 설정 */
+    }
+	form{margin: 20px auto;}
+	tr td { padding: 10px;}
+	tr td:nth-of-type(1){text-align: center;}
+
+</style>
+</head>
+<body>
+<h1>과제 - 회원가입 Reg</h1>
+<!--[[${exerSignUpData}]]-->
+	<table border="">
+		<tr >
+			<th colspan="2" align="center" width="200px">로 그 인 완 료</th>
+		</tr>
+		<tr>
+			<td>Id</td>
+			<td th:text="${exerSignUpData.id}" />
+		</tr>
+		<tr>
+			<td>성함</td>
+			<td th:text="${exerSignUpData.uname}" />
+		</tr>
+		<tr>
+			<td>나이</td>
+			<td th:text="${exerSignUpData.age}" />
+		</tr>
+		<tr>
+			<td>닉네임</td>
+			<td th:text="${exerSignUpData.nickname}" />
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td th:text="${exerSignUpData.gender}" />
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td th:text="${exerSignUpData.email} + '@' + ${exerSignUpData.emailDomain}" />
+		</tr>
+		<tr>
+			<td colspan="2" align="right">
+				<a th:href="@{/}"><button value="홈">홈으로</button></a>
+			</td>
+			
+		</tr>
+	</table>
+</body>
+</html>

@@ -17,7 +17,11 @@ public class BoardDTO {
 
 	int id, cnt, seq, lev, gid;
 	String title, pname, pw, upfile, content;
+	String msg, goUrl;
+	String grade;
+	
 	Date regDate;
+	
 	
 //	public boolean isImg() {
 //	    // 이미지 파일 확장자 목록
@@ -34,11 +38,18 @@ public class BoardDTO {
 //		return false;
 //	}
 	
+	public String getUpfile() {
+		if(upfile == null || upfile.trim().equals("") ||  upfile.trim().equals("null") ) {
+			upfile = null;
+		}
+		return upfile;
+	}
+	
 	public boolean isImg() {
-
-		boolean res = Pattern.matches(".*[.](jpg|bmp|png|gif)", upfile.toLowerCase());
-		
-		return res;
+		if(getUpfile()==null) {
+			return false;
+		}
+		return Pattern.matches(".{1,}[.](bmp|png|gif|jpg|jpeg)", upfile.toLowerCase());
 	}
 	
 }

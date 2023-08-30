@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>examForm</title>
+</head>
+<body>
+<h1>examForm</h1>
+<form action="" method="post">
+	<table border="">
+		<tr>
+			<td>이름</td>
+			<td>국어</td>
+			<td>영어</td>
+			<td>수학</td>
+		</tr>
+		<tr th:each="no : ${#numbers.sequence(0,20)}">
+			<td><input type="text" th:name="|arr[${no}].name|" th:value="|학생${no}|"/></td>
+			<td><input type="text" th:name="|arr[${no}].jum[0]|" 
+			th:value="${T(java.lang.Math).round(T(java.lang.Math).random()*50)+50}"/></td>
+			<td><input type="text" th:name="|arr[${no}].jum[1]|" 
+			th:value="${T(java.lang.Math).round(T(java.lang.Math).random()*50)+50}"/></td>
+			<td><input type="text" th:name="|arr[${no}].jum[2]|" 
+			th:value="${T(java.lang.Math).round(T(java.lang.Math).random()*50)+50}"/></td>
+		</tr>
+		<tr>
+			<td colspan="4"><input type="submit" value="입력" /></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

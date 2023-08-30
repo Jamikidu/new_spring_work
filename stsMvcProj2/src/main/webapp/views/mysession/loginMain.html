@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>로그인메인</title>
+</head>
+<body>
+
+<h1>로그인 메인</h1>
+<div th:if="${session.pid!=null}"> 
+	[[${session.pname}]]님 안녕하세요<br/>
+	session.per : [[${session.per}]]
+	<a href="logout">로그아웃</a>
+</div>
+
+<div th:unless="${session.pid!=null}"> 
+<form action="loginReg">
+	id<input type="text" name="pid" />
+	pw<input type="text" name="pw" />
+	<input type="submit" value="로그인" />
+</form><br/>
+<p>String식 로그인</p>
+<form action="loginReg2">
+	id<input type="text" name="pid" />
+	pw<input type="text" name="pw" />
+	<input type="submit" value="로그인" />
+</form>
+</div>
+</body>
+</html>

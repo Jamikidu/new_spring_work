@@ -30,10 +30,10 @@ public class BoardController {
 	BoardMapper mapper;
 
 	@RequestMapping("list/{page}")
-	String list(Model mm, @PathVariable int page, BoardDTO dto) {
+	String list(Model mm,  BoardDTO dto) {
 		
-		dto.setCnt(mapper.listCnt());
-		dto.calc();
+		
+		dto.calc(mapper.listCnt());
 		System.out.println(dto);
 		List<BoardDTO>data = mapper.list(dto);
 		
@@ -53,7 +53,7 @@ public class BoardController {
 	
 	
 	@GetMapping("insert/{page}")
-	String insert(BoardDTO dto,@PathVariable int page) {
+	String insert(BoardDTO dto) {
 
 		return "board/insertForm";
 	}
@@ -72,21 +72,27 @@ public class BoardController {
 	
 	
 	@GetMapping("delete/{page}/{id}")
-	String delete(@PathVariable int page, @PathVariable int id) {
+	String delete(BoardDTO dto) {
 		
 		return "board/deleteForm";
 	}
 	
 	@PostMapping("delete/{page}/{id}")
-	String deleteReg(BoardDTO dto,  @PathVariable int page, @PathVariable int id) {
+	String deleteReg(BoardDTO dto, HttpServletRequest request) {
 		
 
 		dto.setMsg("삭제실패");
 		dto.setGoUrl("/board/delete/"+dto.getPage()+"/"+dto.getId());
 		
+		BoardDTO delDTO = mapper.detail(dto.getId());
+		
 		int cnt = mapper.delettt(dto);
 		System.out.println("deleteReg:"+cnt);
 		if(cnt>0) {
+			
+			
+			fileDeleteModule(delDTO, request);
+			
 			dto.setMsg("삭제되었습니다.");
 			dto.setGoUrl("/board/list/1");
 		}
@@ -106,21 +112,46 @@ public class BoardController {
 	
 	
 	@PostMapping("modify/{page}/{id}")
-	String modifyReg(BoardDTO dto, @PathVariable int page, @PathVariable int id) {
+	String modifyReg(BoardDTO dto,  HttpServletRequest request) {
 		
 
 		dto.setMsg("수정실패");
 		dto.setGoUrl("/board/modify/"+dto.getPage()+"/"+dto.getId());
+		int cnt = mapper.idPwChk(dto);
 		
-		int cnt = mapper.modifffy(dto);
 		System.out.println("modifyReg:"+cnt);
 		if(cnt>0) {
+			if(dto.getUpfile()==null) {
+				fileSave(dto,request);
+			}
+			mapper.modifffy(dto);
 			dto.setMsg("수정되었습니다.");
 			dto.setGoUrl("/board/detail/"+dto.getPage()+"/"+dto.getId());
 		}
 
 		return "board/alert";
 	}
+	
+	
+	
+	
+	@PostMapping("fileDelete")
+	String fileDelete(BoardDTO dto,  HttpServletRequest request) {
+		
+		BoardDTO delDTO = mapper.detail(dto.getId());
+		dto.setMsg("파일 삭제실패");
+		dto.setGoUrl("/board/modify/"+dto.getPage()+"/"+dto.getId());
+		
+		int cnt = mapper.fileDelete(dto);
+		System.out.println("modifyReg:"+cnt);
+		if(cnt>0) {
+			fileDeleteModule(delDTO, request);
+			dto.setMsg("파일 삭제되었습니다.");
+		}
+
+		return "board/alert";
+	}
+	
 	
 	void fileSave(BoardDTO dto, HttpServletRequest request) {
 		
@@ -202,4 +233,15 @@ public class BoardController {
 			e.printStackTrace();
 		}
 	}
+	
+	void fileDeleteModule(BoardDTO delDTO, HttpServletRequest request) {
+		if(delDTO.getUpfile()!=null) {
+			String path = request.getServletContext().getRealPath("up");
+			path = "D:\\public\\green\\2023_07\\study\\spring_work\\stsMvcProj\\src\\main\\webapp\\up";
+			
+			new File(path+"\\"+delDTO.getUpfile()).delete();
+		}
+	}
+	
+	
 }

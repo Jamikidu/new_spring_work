@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>myValidForm</title>
+<style>
+	td>div{
+		background-color: #ff0;
+		color: #f00;
+
+	}
+</style>
+</head>
+<body>
+<h1>myValidForm</h1>
+
+<form method="post" th:object="${myJoinData}">
+	<table border="">
+		<tr>
+			<td>이름</td>
+			<td><input type="text" th:field="*{pname}" />
+			<div th:if="${#fields.hasErrors('pname')}" th:errors="*{pname}" />
+			</td>
+		</tr>
+		<tr>
+			<td>성적1</td>
+			<td><input type="text" th:field="*{jum1}" />
+			<div th:if="${#fields.hasErrors('jum1')}" th:errors="*{jum1}" />
+			</td>
+		</tr>
+		<tr>
+			<td>성적2</td>
+			<td><input type="text" th:field="*{jum2}" />
+			<div th:if="${#fields.hasErrors('jum2')}" th:errors="*{jum2}" />
+			</td>
+		</tr>
+		<tr>
+			<td>성적3</td>
+			<td><input type="text"  th:field="*{jum3}"/>
+			<div th:if="${#fields.hasErrors('jum3')}" th:errors="*{jum3}" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="제출" />
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>validForm</title>
+<style>
+	td>div{
+		background-color: #ff0;
+		color: #f00;
+	}
+	
+</style>
+</head>
+<body>
+<h1>validForm</h1>
+
+<form method="post" th:object="${joinData}">
+	<table border="">
+		<tr>
+			<td>id</td>
+			<td><input type="text" th:field="*{pid}"/>
+			<div th:if="${#fields.hasErrors('pid')}" th:errors="*{pid}" />
+			
+			</td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text"  th:field="*{pname}"/>
+			<div th:if="${#fields.hasErrors('pname')}" th:errors="*{pname}" />
+			</td>
+		</tr>
+		<tr>
+			<td>암호</td>
+			<td><input type="text"  th:field="*{pw1}"/>
+			<div th:if="${#fields.hasErrors('pw1')}" th:errors="*{pw1}" />
+			</td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td><input type="text"  th:field="*{pw2}"/>
+			<div th:if="${#fields.hasErrors('pw2')}" th:errors="*{pw2}" />
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text"  th:field="*{email}"/>
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+			</td>
+		</tr>
+		<tr>
+			<td>생년월일</td>
+			<td><input type="text"  th:field="*{birth}"/>
+			<div th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}" />
+			</td>
+		</tr>
+		<tr>
+			<td>반</td>
+			<td><input type="text"  th:field="*{ban}"/>
+			<div th:if="${#fields.hasErrors('ban')}" th:errors="*{ban}" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입" />
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

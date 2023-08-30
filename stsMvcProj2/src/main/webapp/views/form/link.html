@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>form/link</title>
+</head>
+<body>
+<h1>form/link</h1>
+<a href="aaa">aaa</a>
+<a th:href="@{bbb}">bbb</a>
+<a href="/ccc">ccc</a>
+<a th:href="@{/ddd}">ddd</a>
+<a th:href="@{${cate1}}">[[${cate1}]]</a>
+<a th:href="${cate2}">[[${cate2}]]</a>
+<!--<a th:href="ggg(pid=zx,age=14)">ggg</a>-->
+<a th:href="@{hhh(id=zx,age=14)}">hhh</a>
+<a th:href="@{${cate1}(id=${pid},age=${age},no=${no})}">[[${cate1}]]</a>
+<a th:href="@{|${cate1}/${cate2}|(id=${pid},age=${age},no=${no})}">[[|${cate1}/${cate2}|]]</a>
+<a th:href="|${cate1}?id=${pid}&age=${age}&no=${no}|">[[${cate1}]]</a>
+<a th:href="|${cate1}/${cate2}?id=${pid}&age=${age}&no=${no}|">[[|${cate1}/${cate2}|]]</a>
+</body>
+</html>

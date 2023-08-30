@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="aaa.service.BoardMapper">
+<mapper namespace="aaa.service.BoardMapper">	<!-- Mapper.java의 이름을 가져오면됨 -->
 	
 	<select id="countList" resultType="Integer">
 		select count(*) from board
@@ -23,9 +23,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	</select>
 	
 	<insert id="insseerr" parameterType="bDTO"  >
-		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev)
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
 		values
-		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0)
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
 	</insert>
 	
 	<delete id="delettt" parameterType="bDTO">
@@ -42,5 +42,13 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	<update id="cntuuup" parameterType="bDTO">
 		update board set cnt = #{cnt} +1 where id = #{id}
 	</update>
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw = #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select>
 
 </mapper>

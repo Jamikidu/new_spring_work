@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>과제 - 회원가입</title>
+<style>
+	*{margin: 0 auto;}
+	h1{text-align: center; margin: 30px 0;}
+	form{margin: 20px auto;}
+	tr>td>div{
+		background-color: #ccc;
+		color: #00f;
+		text-align: justify;
+		font-weight: bold;
+		}
+	tr td:nth-of-type(1){text-align: center;}
+	tr td select,tr td input{padding: 2px;}
+</style>
+</head>
+<body>
+<div>
+<h1>과제 - 회원가입</h1>
+<form action="" method="post" th:object="${exerSignUpData}">  <!--ExerSignUpData 클래스를 빈으로 가져옴-->
+	<table border="">
+		<tr>
+			<th colspan="2" align="center">환 영 합 니 다</th>
+		</tr>
+		<tr>
+			<td>Id</td>
+			<td><input type="text" th:field="*{id}"/>	<!--ExerSignUpData 클래스의 멤버변수를 *{}를 통해 호출-->
+			<div th:if="${#fields.hasErrors('id')}" th:errors="*{id}" />	<!--'id'가 에러를 가지고 있다면(에러가 났다면) 에러메세지 가져옴-->
+			</td>
+		</tr>
+		<tr>
+			<td>암호</td>
+			<td><input type="text"  th:field="*{pw1}"/>
+			<div th:if="${#fields.hasErrors('pw1')}" th:errors="*{pw1}" />
+			</td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td><input type="text"  th:field="*{pw2}"/>
+			<div th:if="${#fields.hasErrors('pw2')}" th:errors="*{pw2}" />
+			</td>
+		</tr>
+		<tr>
+			<td>성함</td>
+			<td><input type="text"  th:field="*{uname}"/>
+			<div th:if="${#fields.hasErrors('uname')}" th:errors="*{uname}" />
+			</td>
+		</tr>
+		<tr>
+			<td>나이</td>
+			<td><input type="text"  th:field="*{age}"/>
+			<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" />
+			</td>
+		</tr>
+		<tr>
+			<td>닉네임</td>
+			<td><input type="text"  th:field="*{nickname}"/>
+			<div th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" />
+			</td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+			<lable th:each="gd : ${exerSignUpData.gender}">
+				<input type="radio" name="gender" th:value="${gd}"/>
+				[[${gd}]]
+			</lable>
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text"  th:field="*{email}"/>
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+			@ <select th:field="*{emailDomain}">
+				<option th:value="naver.com" th:text="naver.com"></option>
+				<option th:value="daum.net" th:text="daum.net"></option>
+				<option th:value="google.com" th:text="google.com"></option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>손흥민의 등번호는?</td>
+			<td><input type="text"  th:field="*{sonnum}"/>
+			<div th:if="${#fields.hasErrors('sonnum')}" th:errors="*{sonnum}" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입" />
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+</body>
+</html>

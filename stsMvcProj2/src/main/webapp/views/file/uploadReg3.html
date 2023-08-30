@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>file/uploadReg</title>
+</head>
+<body>
+<h1>file/uploadReg</h1>
+<table border=""
+	<tr>
+		<td>id</td>
+		<td th:text="${uploadData.id}"/>
+	</tr>
+	<tr>
+		<td>age</td>
+		<td th:text="${uploadData.age}"/>
+	</tr>
+	<tr>
+		<td>ff1</td>
+		<td>
+			<a th:href="|download?ff=${uploadData.ff1Name}|" th:text="${uploadData.ff1Name}"/>
+		</td>
+	</tr>
+	<tr>
+		<td>ff2</td>
+		<td>
+			<img th:if="${uploadData.msg==null}" th:src="|/up/${uploadData.ff2Name}|" alt="" />
+			<th:block th:unless="${uploadData.msg==null}" th:text="${uploadData.msg}"/>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

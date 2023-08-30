@@ -43,6 +43,15 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		pname = #{pname}, content= #{content}, title= #{title}, upfile = #{upfile}
 		where id = #{id} and pw= #{pw}
 	</update>
-
+	
+	
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw= #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select>
 
 </mapper>

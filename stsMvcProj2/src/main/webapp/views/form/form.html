@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>form/form</title>
+</head>
+<body>
+<h1>form/form</h1>
+<form action="" method="post" th:object="${memData}">
+	<table border="">
+		<tr>
+			<td>pid</td>
+			<td><input type="text" th:field="*{pid}" /></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="pname" th:value="*{pname}"/></td>
+		</tr>
+		<tr>
+			<td>병역</td>
+			<td>
+				<!-- <input type="radio" th:field="*{mil}"  /> -->
+				<input type="radio" name="mil" th:checked="*{mil}"  /> 군필
+				<input type="radio" name="mil" th:checked="*{!mil}"  /> 미필
+			</td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td>
+				<label th:each="gg : *{genders}" >
+					<input type="radio" name="gender" th:value="${gg}" 
+					th:checked="*{gender} == ${gg}"/>
+					[[${gg}]]
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td>취미</td>
+			<td><label th:each="hh : *{hobbys}" >
+					<input type="checkbox" name="hobby" th:value="${hh.url}" 
+					th:checked="${#lists.contains(memData.myHobbys, hh.url)}"/>
+					[[${hh.txt}]]
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" name="email1" />@
+				<select th:field="*{email2}" >
+					<option th:each="ee:*{emails}" th:value="${ee.value}" th:text="${ee.key}"/>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>남기실 말</td>
+			<td><textarea th:field="*{content}" cols="60" rows="7"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입" />
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

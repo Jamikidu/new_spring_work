@@ -22,7 +22,7 @@
 		        <span th:if="${dto.lev}>0">
 					└
 				</span>
-		        <a th:href="|detail/${dto.id}|" th:text="${dto.title}"></a>
+		        <a th:href="|detail/${dto.id}?page=${myPageData.page}|" th:text="${dto.title}"></a>
 		    </td>
 		    <td th:text="${dto.pname}"></td>
 		    <td th:text="${#dates.format(dto.regDate, 'yyyy-MM-dd HH:mm:ss')}"></td>

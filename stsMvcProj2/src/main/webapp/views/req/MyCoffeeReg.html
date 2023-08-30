@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>MyCoffeeReg</title>
+</head>
+<body>
+<h1>MyCoffeeReg</h1>
+	<table border="">
+		<tr>
+			<td>메뉴</td>
+			<td>[[${param.type}]]</td>
+		</tr>
+		<tr>
+			<td>수량</td>
+			<td>[[${param.cup}]]</td>
+		</tr>
+		<tr>
+			<td>가격</td>
+			<td>[[${price}]]</td>
+		</tr>
+		<tr>
+			<td>총금액</td>
+			<td>[[${total}]]</td>
+		</tr>
+	</table>
+</body>
+</html>

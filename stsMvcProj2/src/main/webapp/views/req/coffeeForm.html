@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:tt="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>coffeeForm</title>
+</head>
+<body>
+<h1>coffeeForm</h1>
+<form action="?" method="post">
+	<table border="">
+		<tr>
+			<td>메뉴</td>
+			<td>
+				<select name="menu">
+					<th:block th:each="me:${menu}">
+					<option th:value="${me.key}">[[${me.key}]]</option>
+					</th:block>		
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>수량</td>
+			<td><select name="cnt">
+					
+					<option th:each="no:${#numbers.sequence(1,9)}" th:value="${no}">[[${no}]]</option>
+							
+				</select></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="주문" />
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>req/kidsClass</title>
+</head>
+<body>
+<h2>request/kidsClass</h2>
+
+<table border="">
+		<tr>
+			<td>반번호</td>
+			<td>학생이름</td>
+			<td>국어점수</td>
+			<td>영어점수</td>
+			<td>수학점수</td>
+			<td>총점</td>
+			<td>평균</td>
+			<td>등수</td>
+		</tr>
+
+		<tr th:each="ac : ${group.karr}">
+			<td>[[${ac.ban}+'반']]</td>
+			<td>[[${ac.kname}]]</td>
+			<td>[[${ac.kor}]]</td>
+			<td>[[${ac.eng}]]</td>
+			<td>[[${ac.mat}]]</td>
+			<td>[[${ac.total}]]</td>
+			<td>[[${ac.avg}]]</td>
+			<td>[[${ac.rank}]]</td>
+		</tr>
+
+
+	</table>
+</body>
+</html>
