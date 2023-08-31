@@ -4,43 +4,90 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="aaa.service.MybatisMapper">	<!-- Mapper.java의 이름을 가져오면됨 -->
-	
-	
+
+
 	<select id="list" resultType="bDTO">
-		select * from board order by gid desc , seq
+		select * from board order by gid
+		desc , seq
 	</select>
-	
-	<select id="listSch" resultType="bDTO" parameterType="bDTO">
-		select * from board 
+
+	<sql id="wh_1">
 		<where>	<!-- where을 아예 태그로 묶어줌 -->
 			<if test="title!=null">
 				title like concat('%', #{title}, '%')
-			</if>			
+			</if>
 			<if test="pname!=null">
 				and pname like concat('%', #{pname}, '%')
 			</if>
-		</where>		
+		</where>
+	</sql>
+
+	<select id="listSch" resultType="bDTO" parameterType="bDTO">
+		select * from board
+		<include refid="wh_1" />
+
 	</select>
-	
+
 	<select id="cntSch" resultType="bDTO" parameterType="bDTO">
-		select * from board 
+		select * from board
 		<where>	<!-- where을 아예 태그로 묶어줌 -->
 			<if test="grade!=null">
 				<choose>
 					<when test="grade =='high'">
-						cnt > 10	
+						cnt > 10
 					</when>
 					<when test="grade == 'middle'">
-						cnt > 5	and cnt &lt;= 10
+						cnt > 5 and cnt &lt;= 10
 					</when>
 					<otherwise>
-						cnt &lt;= 5	
-					</otherwise>					
+						cnt &lt;= 5
+					</otherwise>
 				</choose>
-				
-			</if>			
+			</if>
+		</where>
+	</select>
+	
+	<sql id="max_1">
+		(select max(id)+1 from board bb)
+	</sql>
 
-		</where>		
-	</select>	
+	<insert id="insseerrList" parameterType="java.util.List">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev, id, gid)
+		values
+		<foreach collection="list" item="dto" separator=" , " index="i">
+			(#{dto.title},#{dto.pname},#{dto.pw},#{dto.content}, sysdate(),0,0,0,
+			200+#{i}, 200+#{i})
+		</foreach>
+	</insert>
+
+	<insert id="insseerrDTOs" parameterType="dtos">
+		insert into board (title, pname, pw, content, reg_date, cnt, seq, lev)
+		values
+		<foreach collection="arr" item="dd" separator=" , ">	<!-- dd.이 붙은건 각자의 내용이고 ct,no는 고정값을 넣어준것임 -->
+			(#{dd.title},#{dd.pname},#{dd.pw},#{ct}, sysdate(),#{no},0,0)
+		</foreach>
+	</insert>
+	
+	<!-- 여러개의 매개변수를 처리시 xml 에서는 매개변수 이름으로 접근 id, pw -->
+	<delete id="delettt">
+		delete from board where id = #{id} and pw = #{pw}
+	</delete>
+	
+	<!-- parameterType이 "map" 인 경우 매개변수를 map으로 묶어 key, value형태로 접근 -->
+	<update id="modifffy" parameterType="map">
+		update board set
+		pname = #{pname}, content = #{content}, title = #{title}
+		where id = #{id} and pw = #{pw}
+	</update>
+	
+	<insert id="insseerr" parameterType="bDTO">
+		<selectKey keyProperty="id" resultType="Integer" order="BEFORE">
+			select max(id)+1 from board
+		</selectKey>
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
+	</insert>
+
 
 </mapper>

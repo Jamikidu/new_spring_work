@@ -22,7 +22,7 @@ public class MyPageData {
 	public void calc(int countList) {
 //		total = mapper.list().size();		//게시판 리스트의 총갯수
 		total = countList;		//게시판 리스트의 총갯수
-		System.out.println("total: "+total);//
+		System.out.println("총 게시글 갯수=>total: "+total);
 		//total = mapper.list().size();
 		
 		pageTotal = total/limit;	//표시되는 페이지의 총갯수(1~끝페이지까지)
@@ -31,13 +31,13 @@ public class MyPageData {
 			pageTotal++;	//표시되는 페이지의 총갯수에 +1
 		}
 		
-		System.out.println("pageTotal: "+pageTotal);
+		//System.out.println("pageTotal: "+pageTotal);
 		
 		
 		start = (page-1)*limit;
 		pageStart = (page-1)/pageLimit*pageLimit+1;
 		pageEnd = pageStart + pageLimit -1;
-		System.out.println("pageTotal, pageEnd:"+pageTotal+", "+pageEnd);
+		//System.out.println("pageTotal, pageEnd:"+pageTotal+", "+pageEnd);
 		
 		if(pageEnd > pageTotal) {
 			pageEnd = pageTotal;
