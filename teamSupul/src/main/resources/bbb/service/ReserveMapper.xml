@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbb.service.ReserveMapper">	<!-- Mapper.java의 이름을 가져오면됨 -->
+	
+	<insert id="reserve" parameterType="rvDTO" >
+		insert into reservation (spot, type, title, users, playtime, reservedtime, id, pname, phone)
+		values
+		(#{spot}, #{type}, #{title}, #{users}, #{playtime}, #{realt}, #{id}, #{pname}, #{phone})
+	</insert>
+	 <select id="fined" resultType="Integer">
+		select * from board  where date = #{date} and time = #{time}
+	</select>
+	
+<!-- 	<select id="countList" resultType="Integer">
+		select count(*) from board
+	</select>
+	
+	<select id="maxId" resultType="Integer">
+		select max(id) from board
+	</select>
+	
+	<select id="list" resultType="bDTO" parameterType="mPD">
+		select * from board order by gid desc , seq limit ?, ?
+		select * from board order by gid desc , seq limit #{start}, #{limit}
+	</select>
+	
+	<select id="detail" resultType="bDTO" parameterType="Integer">
+		select * from board where id = #{id}
+	</select>
+	
+	<insert id="insseerr" parameterType="bDTO"  >
+		insert into board (title, pname, pw, content, upfile, reg_date, cnt, seq, lev, gid, id)
+		values
+		(#{title},#{pname},#{pw},#{content},#{upfile}, sysdate(),0,0,0, #{id}, #{id})
+	</insert>
+	
+	<delete id="delettt" parameterType="bDTO">
+		delete from board where id = #{id} and pw = #{pw}
+	</delete>
+	
+	<update id="modifffy" parameterType="bDTO">
+		update board set 
+		pname = #{pname}, content = #{content}, title = #{title}, upfile = #{upfile} 
+		where id = #{id} and pw = #{pw}
+	</update>
+	
+	조회수증가해보기
+	<update id="cntuuup" parameterType="bDTO">
+		update board set cnt = #{cnt} +1 where id = #{id}
+	</update>
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw = #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select> -->
+
+</mapper>

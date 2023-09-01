@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>예약하기</title>
+<style>
+	.box{border: solid #00f 1px; text-decoration: none;}
+	.content{font-size: 30px; color: red;}
+	
+</style>
+</head>
+<body>
+<div style="border: solid #00f 1px; width: 1250px; margin: 50px auto;">
+	<p><span th:text="|#${reserveData.spot}|" />
+		<span th:text="${reserveData.title}" />
+	</p>
+	<p>장르:
+		<span th:text="${reserveData.type}" />
+	</p>
+	<p class="content">내용:
+		<span th:text="${reserveData.content}" />
+	</p>
+	<p>인원수:
+		<span th:text="${reserveData.people}" />
+	</p>
+	<p>시간:
+		<span th:text="${reserveData.playtime}" />
+	</p>
+	<p>난이도:
+		<span th:text="${reserveData.level}" />
+	</p>
+	<p>활동성:
+		<span th:text="${reserveData.activity}" />
+	</p>
+	<p>
+		<span th:each="rd, rdStat : ${reserveData.timeslot}">
+			<if
+		    <a th:href="@{/reservation/OK(realtime=${rd})}" th:text="${#temporals.format(rd, 'HH:mm')}" class="box" />
+		    unless
+		    <p
+		</span>
+	</p>
+</div>
+</body>
+</html>
