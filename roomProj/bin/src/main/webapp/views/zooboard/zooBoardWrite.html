@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>그린동물원 후기 작성</title>
+<style>
+	form{font-size: 16px;}
+	table{border-collapse: collapse; width: 700px;}
+	tr>td:nth-of-type(1){text-align: right;}
+	tr>td{padding: 4px;}
+	tr>td>input{width: 98%; padding:4px; font-size: 16px;}
+	tr>td>select{padding:4px; font-size: 16px;}
+	tr>td>textarea{width: 98%; padding:4px; resize: none; font-size: 16px;}
+	tr>td>button{padding: 5px 10px; font-size: 16px;}
+</style>
+</head>
+<body>
+	<h1>그린동물원 후기 작성</h1>
+	<form th:action="@{/zooboard/zooBoardWrite}" method="post">
+		<table border="">
+			<tr>
+				<td><label for="title">제목:</label></td>
+				<td><input type="text" id="title" name="title" required></td>
+			</tr>
+			<tr>
+				<td><label for="writer">작성자:</label></td>
+				<td><input type="text" id="writer" name="writer" required></td>
+			</tr>
+			<tr>
+				<td><label for="myanimal">최애동물:</label></td>
+				<td>
+					<select name="myanimal" id="myanimal">
+						<option th:value="lion" th:text="사자"></option>
+						<option th:value="leopard" th:text="표범"></option>
+						<option th:value="monkey" th:text="원숭이"></option>
+						<option th:value="giraffe" th:text="기린"></option>
+						<option th:value="elephant" th:text="코끼리"></option>
+						<option th:value="panda" th:text="판다"></option>
+						<option th:value="flamingo" th:text="플라밍고"></option>
+						<option th:value="tiger" th:text="호랑이"></option>
+						<option th:value="dolphin" th:text="돌고래"></option>
+						<option th:value="penguin" th:text="펭귄"></option>
+					</select>
+					<!--<input type="text" id="myanimal" name="myanimal" required>-->
+				</td>
+			</tr>
+			<tr>
+				<td><label for="content">내용:</label></td>
+				<td><textarea id="content" name="content" rows="15" cols="50" srequired></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><button type="submit">작성</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
