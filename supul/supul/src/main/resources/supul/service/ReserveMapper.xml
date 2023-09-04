@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	
 	<!-- 예약하기 -->
 	<insert id="reserve" parameterType="rvDTO" >
-		insert into reservation (rvnum, spot, type, title, users, playtime, rvdate, rvtime, id, pname, phone)
+		insert into reservation (rv_id, date, time, rv_people, rv_price, userName, themeName, rv_date)
 		values
-		(#{rvnum}, #{spot}, #{type}, #{title}, #{users}, #{playtime}, #{rvdate}, #{rvtime},#{id}, #{pname}, #{phone})
+		(#{rv_id}, #{date}, #{time}, #{rv_people}, #{rv_price}, #{userName}, #{themeName}, #{rv_date})
 	</insert>
 	
 	<!-- 모든 예약 보기 -->
@@ -19,17 +19,27 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	
 	<!-- 예약 삭제 하기 -->
 	<delete id="canclereserve" parameterType="rvDTO">
-		delete from reservation where pname = #{pname} and rvdate = #{rvdate} and rvtime = #{rvtime}
+		delete from reservation where userName = #{userName} and date = #{date} and time = #{time}
 	</delete>
 	
-	<!-- 예약자확인 -->
-	<select id="chkreserve" resultType="rvDTO" parameterType="rvDTO">
-		select * from reservation where id = #{id} and pname = #{pname}
+	<!-- 예약자 확인 -->
+	<select id="confirmreserve" resultType="rvDTO" parameterType="rvDTO">
+		select * from reservation where rv_id = #{rv_id} and userName = #{userName}
+	</select>
+	
+	<!-- 예약 존재여부 확인 -->
+	<select id="chkrvstatus" resultType="Integer" parameterType="themeDTO">
+	    <!-- 여러 개의 time 값에 대한 쿼리를 생성 -->
+		select count(*) from reservation where date = #{date} and time in
+		<foreach collection="timeslot" item="time" open="(" separator=","
+			close=")">
+			#{time}
+		</foreach>
 	</select>
 	
 	<!-- 예약번호 중복확인 -->
 	<select id="chkrvnum" resultType="Integer" parameterType="String">
-		select count(*) from reservation where rvnum = #{rvnum}
+		select count(*) from reservation where rv_id = #{rv_id}
 	</select>
 	
 <!-- 	<select id="findDate" resultType="Integer" parameterType="themeDTO">

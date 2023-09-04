@@ -19,7 +19,7 @@ public interface ReserveMapper {
 	int reserve(Reservation rvDTO);
 	
 	//예약 있는지 체크하기
-	Reservation chkreserve(Reservation rvDTO);
+	Reservation confirmreserve(Reservation rvDTO);
 	
 	//모든 예약 보기
 	List<Reservation> allreserve();
@@ -29,6 +29,9 @@ public interface ReserveMapper {
 	
 	//예약번호 중복체크
 	int chkrvnum(String rvnum);
+	
+	//예약시간 이미 있는지 확인
+	int chkrvstatus(RoomTheme themeDTO);
 	
 	//int findDate(RoomTheme themeDTO);
 

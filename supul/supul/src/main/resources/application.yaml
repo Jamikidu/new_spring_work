@@ -1,7 +1,7 @@
 server :
   port : 80
 spring :
-  thymeleaf :
+  thymeleaf:
     prefix : views/
     suffix : .html
     cache : false 
@@ -12,13 +12,11 @@ spring :
     username : 1234
     password : 1234
     
-# 마이바티스 설정 위치 찾아주게 하기
+
 mybatis :
   type-aliases-package : supul.model
-  configuration :
-    map-underscore-to-camel-case : true
 
-    #    jpa 자동 업데이트설정
-  jpa :
+
+  jpa:
     hibernate:
       ddl-auto: update

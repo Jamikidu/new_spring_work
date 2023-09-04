@@ -14,6 +14,7 @@ import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,33 +34,37 @@ public class ReserveController {
 	
 
 	@RequestMapping("/reservation")
-	String themes(Model mm, RoomTheme rt) {
-		System.out.println("reservation() 진입");
+	String themes(Model mm, RoomTheme rt,@RequestParam(value="date")LocalDate date){
+		System.out.println("예약창 진입");
 		System.out.println(rt);
+		rt.setDate(date);
+		rt.addTime();
+		int cnt =mapper.chkrvstatus(rt);
+		System.out.println("cnt => "+cnt);
 		
-//		mapper.findDate(rt);
-//		System.out.println("mapper.findDate(rt): " + mapper.findDate(rt));
-//		Map<List<RoomTheme>, Integer> a = new HashMap<>();
-		
-		
-		
-	
+		System.out.println("addTime()후 => "+rt);
 		mm.addAttribute("reserveData",rt);
+		mm.addAttribute("cnt",cnt);
 		return "themes";
-	}
+	} 
 	
 	//예약시간 눌렀을때
 	@RequestMapping("/reservation/OK")
 	String reservation_OK(Model mm,
 			@RequestParam(value="realtime")LocalDateTime real,
-			RoomTheme th,
+			/* @RequestParam(value="pickdate")LocalDate pickdate, */
+			RoomTheme theme,
 			Reservation rv) {
 		System.out.println("reservation_OK() 진입");
+
 		
 		
 		//시간 받아온 값을 db에 따로 저장하기 위해서 날짜와 시간으로 나눠줌
-		LocalDate rvdate = real.toLocalDate();	
+		LocalDate rvdate = real.toLocalDate();
 		LocalTime rvtime = real.toLocalTime();
+		theme.setDate(rvdate);
+		System.out.println("theme 초기값 => "+theme);
+		//LocalTime rvtime = real;
 		//System.out.println("rvdate:"+rvdate);
 		//System.out.println("rvtime:"+rvtime);
 		
@@ -74,29 +79,32 @@ public class ReserveController {
 		// 중복 없으면 0 중복있으면 1 여러개면 2이상
 		while(true) {
 			
-			int i = ran.nextInt(1, 1000);
+			int i = ran.nextInt(1, 10000);
 			
 			//String rvnum = datenum+Integer.toString(i);
-			String rvnum = datenum+String.format("%03d", i);
+			String rvnum = datenum+String.format("%04d", i);
 			//System.out.println("중복처리 전 rvnum: "+rvnum);
 			int cnt = mapper.chkrvnum(rvnum);
 			if(cnt==0) {
 
 				//System.out.println("중복처리 후 rvnum: "+rvnum);
-				rv.setRvnum(rvnum);
+				rv.setRv_id(rvnum);
 				break;
 			}
 			
 		}
 		
-		rv.setRt(th);
-		rv.setSpot(th.getSpot());
-		rv.setType(th.getType());
-		rv.setTitle(th.getTitle());
-		rv.setPlaytime(th.getPlaytime());
+		//LocalDateTime newnow = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		
-		rv.setRvdate(rvdate);
-		rv.setRvtime(rvtime);
+		rv.setDate(rvdate);
+		rv.setTime(rvtime);
+		rv.setRv_date(LocalDateTime.now());
+
+		rv.setRv_people(theme.getPeople());
+		rv.setRv_price(theme.getRv_price());
+		rv.setThemeName(theme.getTitle());
+		
+
 		
 		System.out.println("rv: "+rv);
 		System.out.println(real);
@@ -119,28 +127,26 @@ public class ReserveController {
 	//확인처리
 	@PostMapping("checkreservation")
 	String checkreservationReg(Model mm,
-			@RequestParam(value="id")String id,
-			@RequestParam(value="pname")String pname,
 			Reservation rv
 			) {
-		rv.setId(id);
-		rv.setPname(pname);
+//		System.out.println("set 전 rv => "+ rv);
+//		rv.setRv_id(id);
+//		rv.setUserName(name);
 
-//		mapper.allreserve(); 모든 예약 보기
+		mapper.allreserve(); //모든 예약 보기
 //		System.out.println("mapper.allrv(): "+ mapper.allreserve());
 		
-		System.out.println("rv: "+rv);
-		Reservation rvDTO = mapper.chkreserve(rv);
-		System.out.println("mapper결과: "+rvDTO);
+		System.out.println("set 후 rv: "+rv);
+		Reservation rvDTO = mapper.confirmreserve(rv);
+		System.out.println("mapper결과: "+ rvDTO);
 		
 		String Msg = "입력하신 예약 정보가 없습니다.";
 		mm.addAttribute("msg", Msg);
 		mm.addAttribute("goUrl", "checkreservation");
 		
 		if(rvDTO!=null) {
-			Msg = "예약정보 확인 완료";
-			mm.addAttribute("rvData", mapper.chkreserve(rv));
-			mm.addAttribute("msg", Msg);
+			
+			mm.addAttribute("rvData", rvDTO);
 			//mm.addAttribute("goUrl", "myrvinfo");
 			System.out.println("mm 확인2: "+ mm);
 			return "myrvinfo";
@@ -157,7 +163,7 @@ public class ReserveController {
 		mm.addAttribute("msg", "예약 취소 실패.. ㅠㅠ");
 		mm.addAttribute("goUrl", "/");
 		
-		Reservation rvDTO = mapper.chkreserve(rv);
+		Reservation rvDTO = mapper.confirmreserve(rv);
 		//System.out.println("rvDTO:"+rvDTO);
 		int res = mapper.canclereserve(rvDTO);
 		if(res>0) {

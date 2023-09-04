@@ -12,24 +12,16 @@ import lombok.Data;
 @Data
 public class Reservation {
 	 
-	RoomTheme rt;
 	
-	String rvnum;
-	String spot;
-	String type;
-	String title;
-	String playtime;
-	int users=4;			//원래는 form에서 받아와야함
-	String id="ujin123";	//원래는 session정보에서 받아와야함
-	String phone="010-1234-1234";	//이것도 session정보에서 받아와야함
-	String pname="이유진";	//얘도
-	LocalDate rvdate;
-	LocalTime rvtime;
+	String rv_id;
+	LocalDate date;
+	LocalTime time;
+	int rv_people;
+	int rv_price;
+	String userName="일영준";
+	String themeName;
+
+	LocalDateTime rv_date;
 	
-//	시간: 
-//	테마명:
-//	예약자
-//	예약자번호
-//	인원
 
 }

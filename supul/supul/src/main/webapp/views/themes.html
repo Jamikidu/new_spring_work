@@ -2,6 +2,9 @@
 <html xmlns="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>예약하기</title>
 <style>
 	.box{border: solid #00f 1px; 
@@ -9,25 +12,58 @@
 			padding:5px 10px; 
 			margin: 10px;
 			text-decoration: none;
-			display: inline-block;}
+			display: inline-block;
+			}
 	.content{font-size: 30px; color: red;}
 	
 	
 </style>
-<script>
-function confirmrv() {
-    if (confirm('정말 예약하시겠습니까?')) {
-        // 예약을 수락한 경우, 예약 페이지로 이동
-        return true;
-    } else {
-        // 예약을 취소한 경우, 이동하지 않음
-        return false;
-    }
-}
+<script type="text/javascript">
+	function confirmrv() {
+		if (confirm('정말 예약하시겠습니까?')) {
+			// 예약을 수락한 경우, 예약 페이지로 이동
+			return true;
+		} else {
+			// 예약을 취소한 경우, 이동하지 않음
+			return false;
+		}
+	}
+	$(function () {
+	    var urlParams = new URLSearchParams(window.location.search);
+		var dateParam = urlParams.get('date');
+		var currentDate = new Date(); // 현재 날짜를 가져옵니다.
+
+	    // 현재 날짜를 YYYY-MM-DD 형식으로 포맷팅합니다.
+	    var formattedDate = currentDate.toISOString().split('T')[0];
+	    
+		$("#datepicker").datepicker({
+			dateFormat: "yy-mm-dd", // 선택한 날짜 형식
+			closeText: "닫기",
+    		currentText: "오늘",
+			showButtonPanel: true,
+			changeMonth: true,      // 월 선택 가능
+			changeYear: true,       // 연도 선택 가능
+			hideIfNoPrevNext: true ,
+			prevText: 'Earlier',
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			weekHeader: "주",
+			yearSuffix: '년',
+			minDate: "0",
+			maxDate: "+14D",
+		});
+	});
 </script>
 </head>
 <body>
 <div style="border: solid #00f 1px; width: 1250px; margin: 50px auto;">
+	<form name=date1 action="?">
+		<p>
+			<input type="text" name="date" id="datepicker" onchange="submit();"
+			class="date" th:value="${reserveData.date}" width="150px" readonly="readonly"/>
+		</p>
+	</form>
 	<p><span th:text="|#${reserveData.spot}|" />
 		<span th:text="${reserveData.title}" />
 	</p>
@@ -50,12 +86,16 @@ function confirmrv() {
 		<span th:text="${reserveData.activity}" />
 	</p>
 	<div class="time">
-		<block th:each="rd, rdStat : ${reserveData.timeslot}">
+		<block th:each="rd, rdStat : ${reserveData.compdatetimes}">
 			<span th:if="${reserveData.availabletime(rd)}">
+				<block th:if="${cnt eq 0}">
 				<a th:href="@{/reservation/OK(realtime=${rd})}" class="box" onclick="return confirmrv();">
 					<span th:text="${#temporals.format(rd, 'HH:mm')}" />
 				</a>
-			</span>
+				</block>
+				<block th:unless="${cnt eq 0}">
+				<span th:text="${#temporals.format(rd, 'HH:mm')}+ '(예약불가)'" class="box"></span>
+			</block>
 			<span th:unless="${reserveData.availabletime(rd)}">
 				<span th:text="${#temporals.format(rd, 'HH:mm')}+ '(예약불가)'" class="box"></span>
 			</span>
