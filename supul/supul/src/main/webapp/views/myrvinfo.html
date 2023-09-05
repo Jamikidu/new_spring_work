@@ -48,8 +48,7 @@ function confirmcancle() {
 		</tr>
 		<tr>
 			<td colspan="2">
-
-				<a href="/canclereservation" th:text="예약취소"
+				<a th:href="|/canclereservation?rv_id=${rvData.rv_id}&userName=${rvData.userName}|" th:text="예약취소"
 					onclick="return confirmcancle()"></a>
 			</td>
 		</tr>

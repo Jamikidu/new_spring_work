@@ -1,6 +1,9 @@
 package supul.service;
 
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -31,7 +34,8 @@ public interface ReserveMapper {
 	int chkrvnum(String rvnum);
 	
 	//예약시간 이미 있는지 확인
-	int chkrvstatus(RoomTheme themeDTO);
+	//그 결과값을 ArrayList에 넣어줌
+	ArrayList<String> chkrvstatus(RoomTheme themeDTO);
 	
 	//int findDate(RoomTheme themeDTO);
 

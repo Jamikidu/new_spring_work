@@ -7,14 +7,22 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>예약하기</title>
 <style>
-	.box{border: solid #00f 1px; 
-			text-decoration: none; 
+	.box{border: solid #00f 1px;
+			border-radius: 10px;
+			text-decoration: none;
 			padding:5px 10px; 
 			margin: 10px;
-			text-decoration: none;
 			display: inline-block;
 			}
 	.content{font-size: 30px; color: red;}
+	.date{cursor: pointer;}
+	h4{border: solid #00f 1px;
+			border-radius: 10px;
+			text-decoration: none;
+			padding:5px 10px;
+			margin: 10px;
+			width: 110px;
+			}
 	
 	
 </style>
@@ -85,23 +93,27 @@
 	<p>활동성:
 		<span th:text="${reserveData.activity}" />
 	</p>
+	
 	<div class="time">
-		<block th:each="rd, rdStat : ${reserveData.compdatetimes}">
+		<block th:each="rd, rdStat : ${reserveData.timeslot}">
 			<span th:if="${reserveData.availabletime(rd)}">
-				<block th:if="${cnt eq 0}">
-				<a th:href="@{/reservation/OK(realtime=${rd})}" class="box" onclick="return confirmrv();">
-					<span th:text="${#temporals.format(rd, 'HH:mm')}" />
-				</a>
+				<block th:unless="${#lists.contains(reserveExist, #temporals.format(rd, 'HH:mm'))}">
+					<a th:href="@{/reservation/OK(picktime=${rd},date=${reserveData.date})}" class="box" onclick="return confirmrv();">
+						<span th:text="${#temporals.format(rd, 'HH:mm')}" />
+					</a>
 				</block>
-				<block th:unless="${cnt eq 0}">
+				<block  th:if="${#lists.contains(reserveExist, #temporals.format(rd, 'HH:mm'))}">
+					<span th:text="${#temporals.format(rd, 'HH:mm')}+ '(예약불가)'" class="box"></span>
+				</block>
+			</span>
+			
+			<block th:unless="${reserveData.availabletime(rd)}">
 				<span th:text="${#temporals.format(rd, 'HH:mm')}+ '(예약불가)'" class="box"></span>
 			</block>
-			<span th:unless="${reserveData.availabletime(rd)}">
-				<span th:text="${#temporals.format(rd, 'HH:mm')}+ '(예약불가)'" class="box"></span>
-			</span>
+	
 		</block>
 	</div>
-	<h5><a href="/checkreservation">예약정보확인</a></h5>
+	<h4><a href="/checkreservation">예약정보확인</a></h4>
 </div>
 </body>
 </html>

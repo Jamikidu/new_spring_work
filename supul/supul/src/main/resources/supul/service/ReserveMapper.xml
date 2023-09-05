@@ -17,9 +17,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		select * from reservation
 	</select>
 	
-	<!-- 예약 삭제 하기 -->
+	<!-- 예약 취소 하기 -->
 	<delete id="canclereserve" parameterType="rvDTO">
-		delete from reservation where userName = #{userName} and date = #{date} and time = #{time}
+		delete from reservation where rv_id = #{rv_id} and userName = #{userName}
 	</delete>
 	
 	<!-- 예약자 확인 -->
@@ -28,19 +28,25 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 	</select>
 	
 	<!-- 예약 존재여부 확인 -->
-	<select id="chkrvstatus" resultType="Integer" parameterType="themeDTO">
-	    <!-- 여러 개의 time 값에 대한 쿼리를 생성 -->
-		select count(*) from reservation where date = #{date} and time in
-		<foreach collection="timeslot" item="time" open="(" separator=","
-			close=")">
-			#{time}
-		</foreach>
+	<select id="chkrvstatus" resultType="String" parameterType="themeDTO">
+	    <!-- 현재 달력에 있는 date의 값의 db의 시간들을 다 가져와서 결과값을 String으로 받고 그 결과값을 ArrayList에 넣어줌 -->
+		select date_format(time,'%H:%i') from reservation where date = #{date}
 	</select>
 	
 	<!-- 예약번호 중복확인 -->
 	<select id="chkrvnum" resultType="Integer" parameterType="String">
 		select count(*) from reservation where rv_id = #{rv_id}
 	</select>
+	
+	
+	<!-- 예약 존재여부 확인
+	<select id="chkrvstatus" resultType="Integer" parameterType="themeDTO">
+		select count(*) from reservation where date = #{date} and time in
+		<foreach collection="timeslot" item="time" open="(" separator=","
+			close=")">
+			#{time}
+		</foreach>
+	</select> -->
 	
 <!-- 	<select id="findDate" resultType="Integer" parameterType="themeDTO">
 		select * from reservation where rvdate = #{date} and rvtime = #{realt}
