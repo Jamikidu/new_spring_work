@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import supul.model.MailDTO;
 import supul.model.Reservation;
 import supul.model.RoomTheme;
 import supul.service.EmailService;
@@ -32,18 +33,22 @@ public class ReserveController {
 	@Resource
 	ReserveMapper mapper;
 	
-	@Autowired
+	//@Autowired
     private EmailService emailService; // EmailService 주입
 	
-	// 이메일을 보내는 예시
-    @RequestMapping("/sendEmail")
-    public String sendEmail(Model model) {
-        String to = "kangjh1994@gmail.com"; // 수신자 이메일 주소
-        String subject = "수풀입니다";
-        String text = "이메일 내용입니다.";
-
-        emailService.sendEmail(to, subject, text); // 이메일 보내기
-
+	public ReserveController(EmailService emailService) {
+		this.emailService = emailService;
+	}
+	
+    @GetMapping("/mail/send")
+    public String main() {
+        return "sendMail.html";
+    }
+    
+    @PostMapping("/mail/send")
+    public String sendMail(MailDTO mailDto,Model model) {
+        emailService.sendSimpleMessage(mailDto);
+        
         model.addAttribute("msg", "이메일이 성공적으로 전송되었습니다.");
         model.addAttribute("goUrl","/");
         return "alert"; // 이메일 전송 후 보여줄 뷰 페이지
