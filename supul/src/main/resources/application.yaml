@@ -1,0 +1,45 @@
+server :
+  port : 80
+spring :
+  thymeleaf:
+    prefix: views/
+    suffix: .html
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    check-template-location: true
+  
+  datasource :
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/room
+    username : 1234
+    password : 1234
+    
+
+mybatis :
+  type-aliases-package : supul.model
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      
+      
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: roomsupul@gmail.com
+    password: esfhxyzboonkrbea
+    properties:
+      mail:
+        smtp:
+          auth: true
+          debug: true
+          starttls:
+            enable: true
+        mime:
+          charset: UTF-8
+        transport:
+          protocol: smtp
+        
