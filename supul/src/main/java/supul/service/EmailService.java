@@ -51,7 +51,7 @@ public class EmailService {
         
         javaMailSender.send(simpleMessage);
     }
-    public void sendMail() throws MessagingException, IOException {
+    public void sendMail(String email) throws MessagingException, IOException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
@@ -67,7 +67,7 @@ public class EmailService {
         helper.setSubject("HTML 파일 이메일 테스트");
 
         // HTML 파일을 ClassPath에서 읽어옴
-        ClassPathResource htmlFile = new ClassPathResource("welcome.html");
+        ClassPathResource htmlFile = new ClassPathResource("/supul/welcome.html");
 
         // HTML 파일의 내용을 읽어옵니다.
         String htmlContent = IOUtils.toString(htmlFile.getInputStream(), StandardCharsets.UTF_8);

@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="sms"/>
 			<item value="message"/>
 			<item value="thyme"/>
 			<item value="thy"/>
